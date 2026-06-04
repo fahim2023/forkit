@@ -233,6 +233,14 @@ Displays a hero section with a search bar and category filter buttons. Below, re
 
 ### Recipe Detail Page
 
+![Recipe Detail Page](documentation/images/features/recipe-detail-early.png)
+
+Displays the full recipe including a large header image, category badge,
+title, description, cooking time, servings, rating and author. Ingredients
+are listed clearly and instructions are displayed as numbered steps.
+Logged in users can leave comments and rate the recipe. The recipe author
+sees Edit and Delete buttons.
+
 _(Add screenshot)_
 
 Displays the full recipe including a large header image, ingredients list, step-by-step instructions, average star rating, and a comments section.
