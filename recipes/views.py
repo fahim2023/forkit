@@ -63,3 +63,32 @@ def recipe_create(request):
 
     context = {"form": form}
     return render(request, "recipes/recipe_form.html", context)
+
+
+@login_required
+def recipe_edit(request, slug):
+    """
+    Allow the recipe author to edit their own recipe.
+    Redirects non-authors back to the recipe detail page.
+    """
+    recipe = get_object_or_404(Recipe, slug=slug)
+
+    # Check ownership
+    if recipe.author != request.user:
+        messages.error(request, "You can only edit your own recipes!")
+        return redirect("recipe_detail", slug=slug)
+
+    if request.method == "POST":
+        form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Recipe updated successfully!")
+            return redirect("recipe_detail", slug=recipe.slug)
+    else:
+        form = RecipeForm(instance=recipe)
+
+    context = {
+        "form": form,
+        "recipe": recipe,
+    }
+    return render(request, "recipes/recipe_form.html", context)
