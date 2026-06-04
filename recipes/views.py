@@ -3,6 +3,7 @@ from django.db.models import Avg
 from .models import Recipe, Category, Comment, Rating
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from forms import RecipeForm
 
 # Create your views here.
 
@@ -44,37 +45,21 @@ def recipe_create(request):
     Allow logged in users to create a new recipe.
     Redirects to recipe detail page on success.
     """
-    categories = Category.objects.all()
-
     if request.method == "POST":
-        title = request.POST.get("title")
-        description = request.POST.get("description")
-        category_id = request.POST.get("category")
-        cooking_time = request.POST.get("cooking_time")
-        servings = request.POST.get("servings")
-        ingredients = request.POST.get("ingredients")
-        instructions = request.POST.get("instructions")
+        form = RecipeForm(request.POST, request.FILES)
+        if form.is_valid():
+            from django.utils.text import slugify
 
-        from django.utils.text import slugify
+            recipe = form.save(commit=False)
+            recipe.author = request.user
+            recipe.slug = slugify(recipe.title)
+            if Recipe.objects.filter(slug=recipe.slug).exists():
+                recipe.slug = f"{recipe.slug}-{request.user.id}"
+            recipe.save()
+            messages.success(request, "Recipe added successfully!")
+            return redirect("recipe_detail", slug=recipe.slug)
+    else:
+        form = RecipeForm()
 
-        slug = slugify(title)
-
-        if Recipe.objects.filter(slug=slug).exists():
-            slug = f"{slug}-{request.user.id}"
-
-        recipe = Recipe.objects.create(
-            title=title,
-            slug=slug,
-            description=description,
-            category_id=category_id,
-            cooking_time=cooking_time,
-            servings=servings,
-            ingredients=ingredients,
-            instructions=instructions,
-            author=request.user,
-        )
-        messages.success(request, "Recipe added successfully!")
-        return redirect("recipe_detail", slug=recipe.slug)
-
-    context = {"categories": categories}
+    context = {"form": form}
     return render(request, "recipes/recipe_form.html", context)
