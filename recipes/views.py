@@ -3,7 +3,7 @@ from django.db.models import Avg
 from .models import Recipe, Category, Comment, Rating
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from forms import RecipeForm
+from .forms import RecipeForm
 
 # Create your views here.
 

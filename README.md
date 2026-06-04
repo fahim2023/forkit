@@ -247,9 +247,12 @@ Displays the full recipe including a large header image, ingredients list, step-
 
 ### Add / Edit Recipe
 
-_(Add screenshot)_
+![Add Recipe Form](documentation/images/features/add-recipe-form.png)
 
-A form allowing logged-in users to submit a new recipe or edit their existing recipes. All fields are validated before submission.
+A form allowing logged in users to submit a new recipe. All fields are
+validated before submission using Django's ModelForm. On successful
+submission the user is redirected to the new recipe's detail page with
+a success message displayed.
 
 ### Profile Page
 
@@ -542,6 +545,15 @@ Tested on the following devices and browsers:
 - **Fix:** Replaced unbuilt URLs with `#` placeholders in `base.html`
   until the views and URLs are created incrementally
 - **Screenshot:** ![Bug 2 screenshot](documentation/images/bugs/bug-02-noreversematch.png)
+
+### Bug 3 — URL ordering caused 404 on recipe create page
+
+- **Issue:** `recipe/create/` was being matched by `recipe/<slug:slug>/`
+  pattern because the slug URL was defined first in `urls.py`. Django
+  treated "create" as a slug and threw a 404.
+- **Fix:** Moved `recipe/create/` above `recipe/<slug:slug>/` in
+  `urls.py` so specific paths are matched before dynamic ones.
+- **Screenshot:** ![Bug 4](documentation/images/bugs/bug-04-url-ordering.png)
 
 ---
 
