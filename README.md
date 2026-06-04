@@ -247,6 +247,16 @@ Displays the full recipe including a large header image, ingredients list, step-
 
 ### Add / Edit Recipe
 
+### Edit Recipe
+
+![Edit Recipe Success](documentation/images/features/edit-recipe-success.png)
+
+Logged in users can edit their own recipes using the same form as the
+create page, pre-populated with the existing recipe data. If a user
+attempts to edit another user's recipe they are redirected back to the
+recipe detail page with an error message. On successful update the user
+is redirected to the recipe detail page with a success message.
+
 ### Add / Edit Recipe
 
 ![Add Recipe Form](documentation/images/features/add-recipe-form.png)
