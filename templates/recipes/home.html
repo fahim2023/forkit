@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}ForkIt - Discover & Share Amazing Recipes{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<div class="hero-section rounded-3 mb-5">
+    <div class="container py-5 text-center">
+        <h1>Discover & Share <span>Amazing Recipes</span></h1>
+        <p class="lead text-muted mb-4">
+            Join our community of food lovers. Find inspiration, share your 
+            creations, and cook something extraordinary today.
+        </p>
+        <!-- Search Bar -->
+        <form method="GET" action="{% url 'home' %}">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            name="q" 
+                            class="form-control form-control-lg" 
+                            placeholder="Search recipes..."
+                            value="{{ query|default:'' }}"
+                        >
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Category Filter -->
+<div class="mb-4">
+    <a href="{% url 'home' %}" 
+       class="btn btn-sm me-2 mb-2 {% if not selected_category %}btn-primary{% else %}btn-outline-secondary{% endif %}">
+        All
+    </a>
+    {% for category in categories %}
+    <a href="?category={{ category.slug }}" 
+       class="btn btn-sm me-2 mb-2 {% if selected_category == category.slug %}btn-primary{% else %}btn-outline-secondary{% endif %}">
+        {{ category.name }}
+    </a>
+    {% endfor %}
+</div>
+
+<!-- Recipe Grid -->
+{% if recipes %}
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for recipe in recipes %}
+    <div class="col">
+        <div class="card recipe-card h-100">
+            {% if recipe.image %}
+            <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
+            {% else %}
+            <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400" 
+                 class="card-img-top" alt="{{ recipe.title }}">
+            {% endif %}
+            <div class="card-body">
+                {% if recipe.category %}
+                <span class="category-badge mb-2 d-inline-block">{{ recipe.category.name }}</span>
+                {% endif %}
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text text-muted small">{{ recipe.description|truncatewords:15 }}</p>
+            </div>
+            <div class="card-footer bg-white border-top-0">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="stars small">
+                        {% if recipe.avg_rating %}
+                        ★ {{ recipe.avg_rating|floatformat:1 }}
+                        {% else %}
+                        ☆ No ratings
+                        {% endif %}
+                    </div>
+                    <small class="text-muted">
+                        <i class="fas fa-clock"></i> {{ recipe.cooking_time }} min
+                    </small>
+                </div>
+                <small class="text-muted">By {{ recipe.author.username }}</small>
+                <div class="mt-2">
+                    <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-sm btn-primary w-100">
+                        View Recipe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="text-center py-5">
+    <h3 class="text-muted">No recipes found</h3>
+    <p class="text-muted">Try a different search or category</p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'recipe_create' %}" class="btn btn-primary">Add the first recipe!</a>
+    {% endif %}
+</div>
+{% endif %}
+
+{% endblock %}

@@ -520,7 +520,15 @@ Tested on the following devices and browsers:
 - **Issue:** `ImageField` requires Pillow but it was not in the initial dependencies, causing a `SystemCheckError` on `makemigrations`
 - **Fix:** Ran `pip install Pillow` and updated `requirements.txt`
 - **Screenshot:** ![Bug 1 screenshot](documentation/images/bugs/pillow_issue.png)
-  _(Add further bugs here as they are discovered)_
+
+### Bug 2 — NoReverseMatch for recipe_create and profile URLs
+
+- **Issue:** `base.html` referenced `{% url 'recipe_create' %}` and
+  `{% url 'profile' %}` before these URL patterns had been created,
+  causing a `NoReverseMatch` error on every page load
+- **Fix:** Replaced unbuilt URLs with `#` placeholders in `base.html`
+  until the views and URLs are created incrementally
+- **Screenshot:** ![Bug 2 screenshot](documentation/images/bugs/bug-02-noreversematch.png)
 
 ---
 
