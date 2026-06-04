@@ -247,12 +247,17 @@ Displays the full recipe including a large header image, ingredients list, step-
 
 ### Add / Edit Recipe
 
+### Add / Edit Recipe
+
 ![Add Recipe Form](documentation/images/features/add-recipe-form.png)
 
-A form allowing logged in users to submit a new recipe. All fields are
-validated before submission using Django's ModelForm. On successful
-submission the user is redirected to the new recipe's detail page with
-a success message displayed.
+![Recipe Added Successfully](documentation/images/features/add-recipe-success.png)
+
+A form allowing logged in users to submit a new recipe using Django's
+ModelForm with full validation. On successful submission the user is
+redirected to the new recipe's detail page with a success message
+displayed. The form includes fields for title, description, category,
+cooking time, servings, ingredients and instructions.
 
 ### Profile Page
 
