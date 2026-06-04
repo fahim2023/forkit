@@ -1,0 +1,128 @@
+[
+  {
+    "model": "recipes.recipe",
+    "pk": 1,
+    "fields": {
+      "title": "Spaghetti Carbonara",
+      "slug": "spaghetti-carbonara",
+      "description": "Classic Roman pasta with a creamy egg sauce, crispy pancetta and pecorino romano.",
+      "ingredients": "400g spaghetti\n200g pancetta\n4 egg yolks\n100g pecorino romano\nBlack pepper\nSalt",
+      "instructions": "Boil pasta in salted water until al dente\nFry pancetta until crispy\nMix egg yolks with grated pecorino\nCombine hot pasta with pancetta\nRemove from heat and add egg mixture\nToss quickly and serve immediately",
+      "cooking_time": 25,
+      "servings": 4,
+      "image": "",
+      "author": 1,
+      "category": 1,
+      "created_at": "2026-01-01T10:00:00Z",
+      "updated_at": "2026-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 2,
+    "fields": {
+      "title": "Vegan Buddha Bowl",
+      "slug": "vegan-buddha-bowl",
+      "description": "A nourishing bowl packed with roasted vegetables, quinoa, avocado and a creamy tahini dressing.",
+      "ingredients": "1 cup quinoa\n1 sweet potato cubed\n1 cup chickpeas drained\n1 avocado sliced\n2 cups baby spinach\n1 cup red cabbage shredded\n2 tbsp tahini\n1 lemon juiced\n1 tbsp maple syrup\nOlive oil, salt, pepper",
+      "instructions": "Cook quinoa according to package directions\nRoast sweet potato and chickpeas with olive oil at 200C for 25 minutes\nMake the dressing by whisking tahini, lemon juice and maple syrup\nAssemble bowls with quinoa, roasted vegetables, spinach and cabbage\nTop with avocado and drizzle with tahini dressing\nSprinkle with sesame seeds and serve",
+      "cooking_time": 35,
+      "servings": 2,
+      "image": "",
+      "author": 1,
+      "category": 2,
+      "created_at": "2026-01-02T10:00:00Z",
+      "updated_at": "2026-01-02T10:00:00Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 3,
+    "fields": {
+      "title": "Chocolate Lava Cake",
+      "slug": "chocolate-lava-cake",
+      "description": "Decadent individual chocolate cakes with a molten centre, the ultimate dinner party showstopper.",
+      "ingredients": "200g dark chocolate\n200g butter\n4 eggs\n4 egg yolks\n200g caster sugar\n100g plain flour\nCocoa powder for dusting\nVanilla ice cream to serve",
+      "instructions": "Preheat oven to 200C and grease 4 ramekins with butter and cocoa powder\nMelt chocolate and butter together in a bowl over simmering water\nWhisk eggs, egg yolks and sugar until pale and thick\nFold chocolate mixture into egg mixture\nSift in flour and fold gently\nPour into ramekins and bake for 12 minutes\nRun a knife around the edge and turn out onto plates\nServe immediately with vanilla ice cream",
+      "cooking_time": 20,
+      "servings": 4,
+      "image": "",
+      "author": 1,
+      "category": 3,
+      "created_at": "2026-01-03T10:00:00Z",
+      "updated_at": "2026-01-03T10:00:00Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 4,
+    "fields": {
+      "title": "15-Minute Chicken Stir Fry",
+      "slug": "15-minute-chicken-stir-fry",
+      "description": "Quick and flavourful weeknight stir fry with tender chicken, crisp vegetables and a savvy ginger soy sauce.",
+      "ingredients": "500g chicken breast sliced\n2 tbsp soy sauce\n1 tbsp oyster sauce\n1 tsp sesame oil\n1 tbsp ginger grated\n2 garlic cloves minced\n1 red pepper sliced\n1 cup broccoli florets\n2 spring onions chopped\nVegetable oil\nRice to serve",
+      "instructions": "Mix soy sauce, oyster sauce and sesame oil in a bowl\nHeat oil in a wok over high heat\nStir fry chicken for 3-4 minutes until cooked through\nAdd garlic and ginger and cook for 1 minute\nAdd vegetables and stir fry for 3 minutes\nPour over sauce and toss everything together\nGarnish with spring onions and serve with rice",
+      "cooking_time": 15,
+      "servings": 4,
+      "image": "",
+      "author": 1,
+      "category": 4,
+      "created_at": "2026-01-04T10:00:00Z",
+      "updated_at": "2026-01-04T10:00:00Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 5,
+    "fields": {
+      "title": "Greek Salad",
+      "slug": "greek-salad",
+      "description": "Bright and refreshing Mediterranean salad with ripe tomatoes, cucumbers, olives and crumbled feta.",
+      "ingredients": "4 ripe tomatoes chopped\n1 cucumber chopped\n1 red onion thinly sliced\n200g feta cheese crumbled\n100g kalamata olives\n2 tbsp extra virgin olive oil\n1 tbsp red wine vinegar\n1 tsp dried oregano\nSalt and pepper",
+      "instructions": "Chop tomatoes and cucumber into chunky pieces\nThinly slice the red onion\nCombine tomatoes, cucumber and onion in a large bowl\nAdd olives and crumbled feta\nDrizzle with olive oil and red wine vinegar\nSprinkle with oregano, salt and pepper\nToss gently and serve immediately",
+      "cooking_time": 10,
+      "servings": 4,
+      "image": "",
+      "author": 1,
+      "category": 5,
+      "created_at": "2026-01-05T10:00:00Z",
+      "updated_at": "2026-01-05T10:00:00Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 6,
+    "fields": {
+      "title": "Homemade Sourdough Bread",
+      "slug": "homemade-sourdough-bread",
+      "description": "Artisan crusty sourdough bread with a beautifully open crumb, worth every minute of the wait.",
+      "ingredients": "500g strong bread flour\n375ml water\n100g active sourdough starter\n10g salt",
+      "instructions": "Mix flour and water and leave to rest for 30 minutes\nAdd sourdough starter and salt and mix well\nPerform stretch and fold every 30 minutes for 2 hours\nShape the dough and place in a floured banneton\nRefrigerate overnight for 8-12 hours\nPreheat oven to 250C with a dutch oven inside\nBake covered for 20 minutes then uncovered for 25 minutes\nCool completely on a wire rack before slicing",
+      "cooking_time": 60,
+      "servings": 8,
+      "image": "",
+      "author": 1,
+      "category": 6,
+      "created_at": "2026-01-06T10:00:00Z",
+      "updated_at": "2026-01-06T10:00:00Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 7,
+    "fields": {
+      "title": "Caesar Salad",
+      "slug": "caesar-salad",
+      "description": "The ultimate classic Caesar salad with crunchy croutons, crisp romaine lettuce and a tangy homemade dressing.",
+      "ingredients": "2 heads romaine lettuce\n100g parmesan shaved\n2 slices bread for croutons\n2 tbsp olive oil\n2 garlic cloves\n2 tbsp mayonnaise\n1 tbsp lemon juice\n1 tsp worcestershire sauce\n1 tsp dijon mustard\nSalt and pepper",
+      "instructions": "Cut bread into cubes and toss with olive oil and garlic\nBake croutons at 180C for 10 minutes until golden\nMake dressing by whisking mayonnaise, lemon juice, worcestershire and mustard\nTear romaine into pieces and place in a large bowl\nAdd dressing and toss to coat\nTop with croutons and shaved parmesan\nSeason with black pepper and serve immediately",
+      "cooking_time": 20,
+      "servings": 4,
+      "image": "",
+      "author": 1,
+      "category": 7,
+      "created_at": "2026-01-07T10:00:00Z",
+      "updated_at": "2026-01-07T10:00:00Z"
+    }
+  }
+]
