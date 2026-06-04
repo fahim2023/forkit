@@ -222,6 +222,11 @@ The navbar is fully responsive and collapses to a burger menu on mobile. It disp
 
 ### Homepage
 
+![Homepage](documentation/images/features/homepage-early.png)
+
+Displays a hero section with a search bar and category filter buttons.
+When no recipes exist, a "No recipes found" message is displayed with
+a prompt to add the first recipe.
 _(Add screenshot)_
 
 Displays a hero section with a search bar and category filter buttons. Below, recipe cards are displayed in a responsive grid showing the recipe image, title, category, rating, cooking time and author.

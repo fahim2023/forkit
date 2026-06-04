@@ -1,7 +1,6 @@
-from django.shortcuts import render
-
-from django.db.models import Avg, Q
-from .models import Recipe, Category
+from django.shortcuts import render, get_object_or_404
+from django.db.models import Avg
+from .models import Recipe, Category, Comment, Rating
 
 # Create your views here.
 
@@ -19,3 +18,19 @@ def home(request):
         "categories": categories,
     }
     return render(request, "recipes/home.html", context)
+
+
+def recipe_detail(request, slug):
+    """
+    Display a single recipe with its comments and ratings.
+    """
+    recipe = get_object_or_404(Recipe, slug=slug)
+    comments = recipe.comments.all()
+    avg_rating = recipe.ratings.aggregate(Avg("score"))["score__avg"]
+
+    context = {
+        "recipe": recipe,
+        "comments": comments,
+        "avg_rating": avg_rating,
+    }
+    return render(request, "recipes/recipe_detail.html", context)
