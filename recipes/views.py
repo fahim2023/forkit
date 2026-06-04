@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Avg
 from .models import Recipe, Category, Comment, Rating
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -34,3 +36,45 @@ def recipe_detail(request, slug):
         "avg_rating": avg_rating,
     }
     return render(request, "recipes/recipe_detail.html", context)
+
+
+@login_required
+def recipe_create(request):
+    """
+    Allow logged in users to create a new recipe.
+    Redirects to recipe detail page on success.
+    """
+    categories = Category.objects.all()
+
+    if request.method == "POST":
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        category_id = request.POST.get("category")
+        cooking_time = request.POST.get("cooking_time")
+        servings = request.POST.get("servings")
+        ingredients = request.POST.get("ingredients")
+        instructions = request.POST.get("instructions")
+
+        from django.utils.text import slugify
+
+        slug = slugify(title)
+
+        if Recipe.objects.filter(slug=slug).exists():
+            slug = f"{slug}-{request.user.id}"
+
+        recipe = Recipe.objects.create(
+            title=title,
+            slug=slug,
+            description=description,
+            category_id=category_id,
+            cooking_time=cooking_time,
+            servings=servings,
+            ingredients=ingredients,
+            instructions=instructions,
+            author=request.user,
+        )
+        messages.success(request, "Recipe added successfully!")
+        return redirect("recipe_detail", slug=recipe.slug)
+
+    context = {"categories": categories}
+    return render(request, "recipes/recipe_form.html", context)
