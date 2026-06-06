@@ -593,7 +593,7 @@ Tested on the following devices and browsers:
   message levels to Bootstrap CSS classes
   - **Screenshot:** ![Bug 5](documentation/images/bugs/bug-04-message-tags.png)
 
-### Bug 6 — Footer not sticking to bottom of page
+### Bug 5 — Footer not sticking to bottom of page
 
 - **Issue:** Footer was floating in the middle of the page when
   there was not enough content to fill the viewport height
@@ -601,6 +601,15 @@ Tested on the following devices and browsers:
   `d-flex flex-column min-vh-100` on the body, `flex-grow-1` on
   main and `mt-auto` on the footer to push it to the bottom
 - **Screenshot:** ![Bug 6](documentation/images/bugs/bug-05-footer.png)
+
+### Bug 6 — Comment submission not working
+
+- **Issue:** Comment submission code was missing from the
+  `recipe_detail` view, so comments were not being saved to
+  the database
+- **Fix:** Added POST request handling to `recipe_detail` view
+  to create comments when the form is submitted
+- **Screenshot:** ![Bug 6](documentation/images/bugs/bug-06-comments-not-submitting.png)
 
 ---
 
