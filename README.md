@@ -443,6 +443,19 @@ in production.
   levels to Bootstrap alert classes so error, success and warning
   messages display with correct colours
 
+### Bug 9 — Cloudinary images not uploading to Heroku
+
+- **Issue:** Images were not being sent to Cloudinary because
+  `DEFAULT_FILE_STORAGE` is deprecated in Django 6, and
+  `CompressedManifestStaticFilesStorage` was causing a
+  `FileNotFoundError` when collecting Cloudinary's JS files
+- **Fix:** Replaced `DEFAULT_FILE_STORAGE` and `STATICFILES_STORAGE`
+  with the new Django `STORAGES` dictionary setting, using
+  `StaticFilesStorage` for WhiteNoise and
+  `MediaCloudinaryStorage` for Cloudinary
+- **Before:** ![Bug 9 before](documentation/images/bugs/bug-09-cloudinary-before.png)
+- **After:** ![Bug 9 after](documentation/images/bugs/bug-09-cloudinary-after.png)
+
 ---
 
 ## Deployment
