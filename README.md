@@ -269,6 +269,17 @@ redirected to the new recipe's detail page with a success message
 displayed. The form includes fields for title, description, category,
 cooking time, servings, ingredients and instructions.
 
+### Delete Recipe
+
+![Delete Confirmation](documentation/images/features/delete-confirmation.png)
+
+![Delete Success](documentation/images/features/delete-success.png)
+
+A confirmation page is displayed before deleting a recipe to prevent
+accidental deletions. Only the recipe author can delete their own recipes.
+On confirmation the recipe is deleted and the user is redirected to the
+homepage with a success message.
+
 ### Profile Page
 
 _(Add screenshot)_
@@ -371,6 +382,9 @@ The Django admin panel allows the site owner to manage all recipes, categories, 
 - All recipe and comment edit/delete views are protected with `@login_required`
 - Users can only edit or delete their own content — ownership is checked in every relevant view
 - CSRF protection is enabled on all forms
+- `MESSAGE_TAGS` configured in `settings.py` to map Django message
+  levels to Bootstrap alert classes so error, success and warning
+  messages display with correct colours
 
 ---
 
@@ -569,6 +583,15 @@ Tested on the following devices and browsers:
 - **Fix:** Moved `recipe/create/` above `recipe/<slug:slug>/` in
   `urls.py` so specific paths are matched before dynamic ones.
 - **Screenshot:** ![Bug 4](documentation/images/bugs/bug-04-url-ordering.png)
+
+### Bug 4 — Error messages not displaying correct colour
+
+- **Issue:** Django's `messages.error` uses the tag `error` but
+  Bootstrap uses `danger` for red alerts, so error messages were
+  not styled correctly
+- **Fix:** Added `MESSAGE_TAGS` to `settings.py` to map Django
+  message levels to Bootstrap CSS classes
+  - **Screenshot:** ![Bug 5](documentation/images/bugs/bug-05-message-tags.png)
 
 ---
 
