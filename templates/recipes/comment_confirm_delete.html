@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Comment - ForkIt{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card border-danger">
+            <div class="card-body text-center p-5">
+                <h2 class="text-danger mb-3">Delete Comment</h2>
+                <p class="lead mb-4">
+                    Are you sure you want to delete your comment on 
+                    <strong>{{ comment.recipe.title }}</strong>?
+                </p>
+                <p class="text-muted mb-2">
+                    "{{ comment.body|truncatewords:20 }}"
+                </p>
+                <p class="text-muted mb-4">
+                    This action cannot be undone.
+                </p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="submit" class="btn btn-danger">
+                            Yes, delete it
+                        </button>
+                        <a href="{% url 'recipe_detail' comment.recipe.slug %}" 
+                           class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
