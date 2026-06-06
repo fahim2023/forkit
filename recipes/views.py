@@ -114,3 +114,26 @@ def recipe_delete(request, slug):
 
     context = {"recipe": recipe}
     return render(request, "recipes/recipe_confirm_delete.html", context)
+
+
+@login_required
+def comment_delete(request, comment_id):
+    """
+    Allow the comment author to delete their own comment.
+    Redirects non-authors back to the recipe detail page.
+    """
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    # Check ownership
+    if comment.author != request.user:
+        messages.error(request, "You can only delete your own comments!")
+        return redirect("recipe_detail", slug=comment.recipe.slug)
+
+    if request.method == "POST":
+        slug = comment.recipe.slug
+        comment.delete()
+        messages.success(request, "Comment deleted successfully!")
+        return redirect("recipe_detail", slug=slug)
+
+    context = {"comment": comment}
+    return render(request, "recipes/comment_confirm_delete.html", context)
