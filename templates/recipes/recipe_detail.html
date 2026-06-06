@@ -98,7 +98,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h5>Rate this recipe</h5>
-                <form method="POST" action="#">
+                <form method="POST" action="{% url 'rate_recipe' recipe.slug %}">
                     {% csrf_token %}
                     <div class="d-flex gap-2 align-items-center">
                         <select name="score" class="form-select w-auto">
