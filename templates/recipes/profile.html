@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}My Profile - ForkIt{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <!-- Profile Header -->
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="rounded-circle bg-primary text-white d-flex align-items-center 
+                                justify-content-center" style="width:60px; height:60px; font-size:1.5rem;">
+                        {{ user.username|first|upper }}
+                    </div>
+                    <div>
+                        <h2 class="mb-0">{{ user.username }}</h2>
+                        <p class="text-muted mb-0">{{ user.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User's Recipes -->
+    <div class="col-12">
+        <h3 class="mb-4">My Recipes ({{ recipes.count }})</h3>
+
+        {% if recipes %}
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for recipe in recipes %}
+            <div class="col">
+                <div class="card recipe-card h-100">
+                    {% if recipe.image %}
+                    <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
+                    {% else %}
+                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400" 
+                         class="card-img-top" alt="{{ recipe.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        {% if recipe.category %}
+                        <span class="category-badge mb-2 d-inline-block">{{ recipe.category.name }}</span>
+                        {% endif %}
+                        <h5 class="card-title">{{ recipe.title }}</h5>
+                        <p class="card-text text-muted small">{{ recipe.description|truncatewords:15 }}</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="stars small">
+                                {% if recipe.avg_rating %}
+                                ★ {{ recipe.avg_rating|floatformat:1 }}
+                                {% else %}
+                                ☆ No ratings
+                                {% endif %}
+                            </div>
+                            <small class="text-muted">
+                                <i class="fas fa-clock"></i> {{ recipe.cooking_time }} min
+                            </small>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="{% url 'recipe_detail' recipe.slug %}" 
+                               class="btn btn-sm btn-primary flex-grow-1">View</a>
+                            <a href="{% url 'recipe_edit' recipe.slug %}" 
+                               class="btn btn-sm btn-outline-secondary">Edit</a>
+                            <a href="{% url 'recipe_delete' recipe.slug %}" 
+                               class="btn btn-sm btn-outline-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <h4 class="text-muted">You haven't posted any recipes yet</h4>
+            <a href="{% url 'recipe_create' %}" class="btn btn-primary mt-3">
+                Add your first recipe!
+            </a>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
