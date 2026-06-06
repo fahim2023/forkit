@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register - ForkIt{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+            <div class="card-body p-5">
+                <h2 class="text-center mb-4">Create an account</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="d-grid mt-3">
+                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                    </div>
+                </form>
+                <hr>
+                <p class="text-center mb-0">
+                    Already have an account? 
+                    <a href="{% url 'account_login' %}">Log in here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
