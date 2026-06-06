@@ -11,4 +11,5 @@ urlpatterns = [
         "comment/<int:comment_id>/delete/", views.comment_delete, name="comment_delete"
     ),
     path("recipe/<slug:slug>/rate/", views.rate_recipe, name="rate_recipe"),
+    path("profile/", views.profile, name="profile"),
 ]
