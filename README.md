@@ -348,6 +348,12 @@ Django messages framework used throughout to provide feedback on all user action
 
 ### Custom 404 Page
 
+![Custom 404 Page](documentation/images/features/404-page.png)
+
+A custom 404 page is displayed when a user navigates to a page that
+doesn't exist. The page includes a link back to the homepage so users
+never need to use the browser's back button.
+
 _(Add screenshot)_
 
 A custom 404 page redirects users back to the homepage without needing browser navigation buttons.
@@ -662,6 +668,15 @@ Tested on the following devices and browsers:
   `DEBUG=False` to test. Custom 404 pages only show when
   `DEBUG=False`
 - **Screenshot:** ![Bug 7](documentation/images/bugs/bug-07-404-page.png)
+
+### Bug 8 — Static files not loading on Heroku
+
+- **Issue:** CSS and Bootstrap styles not loading on Heroku because
+  `DISABLE_COLLECTSTATIC=1` was set and `collectstatic` had never
+  been run on the production server
+- **Fix:** Ran `python manage.py collectstatic` on Heroku and
+  removed the `DISABLE_COLLECTSTATIC` config var
+- **Screenshot:** ![Bug 8](documentation/images/bugs/bug-08-static-files.png)
 
 ---
 
