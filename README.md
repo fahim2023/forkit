@@ -225,6 +225,17 @@ Delete button on their own comments. A confirmation page is displayed
 before deletion to prevent accidental deletions. On successful deletion
 the user is redirected back to the recipe with a success message.
 
+### Ratings
+
+![Rating Success](documentation/images/features/rating-success.png)
+
+![Homepage with Ratings](documentation/images/features/homepage-with-ratings.png)
+
+Logged in users can rate any recipe they did not author out of 5 stars.
+Each user can only rate a recipe once — submitting a new rating updates
+their existing one. The average rating is displayed on both the homepage
+card and the recipe detail page.
+
 ### Navigation
 
 _(Add screenshot)_
