@@ -211,6 +211,20 @@ Food photography is sourced from [Pexels](https://www.pexels.com/) which provide
 
 ## Features
 
+### Comments
+
+![Comment Added](documentation/images/features/comment-added.png)
+
+![Comment Delete Confirmation](documentation/images/features/comment-delete-confirmation.png)
+
+![Comment Deleted](documentation/images/features/comment-deleted.png)
+
+Logged in users can leave comments on any recipe. Comments display
+the author's username and date posted. The comment author sees a
+Delete button on their own comments. A confirmation page is displayed
+before deletion to prevent accidental deletions. On successful deletion
+the user is redirected back to the recipe with a success message.
+
 ### Navigation
 
 _(Add screenshot)_
