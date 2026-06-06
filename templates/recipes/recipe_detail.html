@@ -144,7 +144,7 @@
                     <p class="mb-0 mt-2">{{ comment.body }}</p>
                     {% if user == comment.author %}
                     <div class="mt-2">
-                        <a href="#" class="btn btn-sm btn-outline-danger">Delete</a>
+                        <a href="{% url 'comment_delete' comment.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
                     </div>
                     {% endif %}
                 </div>
