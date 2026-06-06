@@ -582,7 +582,7 @@ Tested on the following devices and browsers:
   treated "create" as a slug and threw a 404.
 - **Fix:** Moved `recipe/create/` above `recipe/<slug:slug>/` in
   `urls.py` so specific paths are matched before dynamic ones.
-- **Screenshot:** ![Bug 4](documentation/images/bugs/bug-04-url-ordering.png)
+- **Screenshot:** ![Bug 4](documentation/images/bugs/bug-03-url-ordering.png)
 
 ### Bug 4 — Error messages not displaying correct colour
 
@@ -591,7 +591,16 @@ Tested on the following devices and browsers:
   not styled correctly
 - **Fix:** Added `MESSAGE_TAGS` to `settings.py` to map Django
   message levels to Bootstrap CSS classes
-  - **Screenshot:** ![Bug 5](documentation/images/bugs/bug-05-message-tags.png)
+  - **Screenshot:** ![Bug 5](documentation/images/bugs/bug-04-message-tags.png)
+
+### Bug 6 — Footer not sticking to bottom of page
+
+- **Issue:** Footer was floating in the middle of the page when
+  there was not enough content to fill the viewport height
+- **Fix:** Added Bootstrap flex utilities to `base.html` —
+  `d-flex flex-column min-vh-100` on the body, `flex-grow-1` on
+  main and `mt-auto` on the footer to push it to the bottom
+- **Screenshot:** ![Bug 6](documentation/images/bugs/bug-05-footer.png)
 
 ---
 
