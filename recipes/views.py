@@ -26,10 +26,19 @@ def home(request):
 def recipe_detail(request, slug):
     """
     Display a single recipe with its comments and ratings.
+    Handles comment submission for logged in users.
     """
     recipe = get_object_or_404(Recipe, slug=slug)
     comments = recipe.comments.all()
     avg_rating = recipe.ratings.aggregate(Avg("score"))["score__avg"]
+
+    # Handle comment submission
+    if request.method == "POST" and request.user.is_authenticated:
+        body = request.POST.get("body")
+        if body:
+            Comment.objects.create(body=body, recipe=recipe, author=request.user)
+            messages.success(request, "Comment added successfully!")
+            return redirect("recipe_detail", slug=slug)
 
     context = {
         "recipe": recipe,
