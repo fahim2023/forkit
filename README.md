@@ -653,6 +653,16 @@ Tested on the following devices and browsers:
   to create comments when the form is submitted
 - **Screenshot:** ![Bug 6](documentation/images/bugs/bug-06-comments-not-submitting.png)
 
+### Bug 7 — Custom 404 page not displaying
+
+- **Issue:** Custom 404 page was not displaying because the
+  `404.html` template had not been created and `DEBUG` was set
+  to `True` locally which overrides custom error pages
+- **Fix:** Created `templates/404.html` template and set
+  `DEBUG=False` to test. Custom 404 pages only show when
+  `DEBUG=False`
+- **Screenshot:** ![Bug 7](documentation/images/bugs/bug-07-404-page.png)
+
 ---
 
 ## Credits
