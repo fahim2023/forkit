@@ -146,3 +146,23 @@ def comment_delete(request, comment_id):
 
     context = {"comment": comment}
     return render(request, "recipes/comment_confirm_delete.html", context)
+
+
+@login_required
+def rate_recipe(request, slug):
+    """
+    Allow logged in users to rate a recipe out of 5 stars.
+    Each user can only rate a recipe once - update_or_create
+    ensures this by updating an existing rating if one exists.
+    """
+    recipe = get_object_or_404(Recipe, slug=slug)
+
+    if request.method == "POST":
+        score = request.POST.get("score")
+        if score:
+            Rating.objects.update_or_create(
+                recipe=recipe, user=request.user, defaults={"score": score}
+            )
+            messages.success(request, "Rating saved successfully!")
+
+    return redirect("recipe_detail", slug=slug)
