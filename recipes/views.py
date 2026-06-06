@@ -166,3 +166,17 @@ def rate_recipe(request, slug):
             messages.success(request, "Rating saved successfully!")
 
     return redirect("recipe_detail", slug=slug)
+
+
+@login_required
+def profile(request):
+    """
+    Display the logged in user's profile page
+    with all their posted recipes.
+    """
+    recipes = Recipe.objects.filter(author=request.user).annotate(
+        avg_rating=Avg("ratings__score")
+    )
+
+    context = {"recipes": recipes}
+    return render(request, "recipes/profile.html", context)
