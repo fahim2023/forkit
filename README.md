@@ -318,6 +318,18 @@ Displays the user's username, email, bio and a grid of all their posted recipes.
 
 ### Login / Register
 
+![Login Page](documentation/images/features/login-page.png)
+
+![Register Page](documentation/images/features/register-page.png)
+
+![Logout Page](documentation/images/features/logout-page.png)
+
+Custom authentication templates built with Django Allauth and Crispy
+Forms. The login page allows existing users to sign in. The register
+page allows new users to create an account. The logout page asks for
+confirmation before signing out. Each page links to the other for
+easy navigation.
+
 _(Add screenshot)_
 
 Clean, centred authentication forms built with Django Allauth.
