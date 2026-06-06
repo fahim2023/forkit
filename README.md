@@ -307,6 +307,11 @@ homepage with a success message.
 
 ### Profile Page
 
+![Profile Page](documentation/images/features/profile-page.png)
+
+Displays the logged in user's avatar, username and email. Below,
+all their posted recipes are shown in a card grid with View, Edit
+and Delete buttons for easy management of their content.
 _(Add screenshot)_
 
 Displays the user's username, email, bio and a grid of all their posted recipes.
