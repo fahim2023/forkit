@@ -390,6 +390,15 @@ The Django admin panel allows the site owner to manage all recipes, categories, 
 
 **Deployment:**
 
+### Static Files on Heroku
+
+![Heroku styles working](documentation/images/features/heroku-styles-working.png)
+
+Static files are served using WhiteNoise. The `Procfile` includes a
+`release` command that runs `collectstatic` automatically on every
+deployment, ensuring CSS and JavaScript files are always available
+in production.
+
 - Heroku
 - Whitenoise (static files)
 - Gunicorn (web server)
@@ -672,10 +681,12 @@ Tested on the following devices and browsers:
 ### Bug 8 — Static files not loading on Heroku
 
 - **Issue:** CSS and Bootstrap styles not loading on Heroku because
-  `DISABLE_COLLECTSTATIC=1` was set and `collectstatic` had never
-  been run on the production server
-- **Fix:** Ran `python manage.py collectstatic` on Heroku and
-  removed the `DISABLE_COLLECTSTATIC` config var
+  `staticfiles/` was in `.gitignore` and collectstatic had never
+  been run, so Heroku had no static files to serve
+- **Fix:** Ran `python manage.py collectstatic --noinput` locally,
+  removed `staticfiles/` from `.gitignore` temporarily to push the
+  files to Heroku, then added a `release` command to `Procfile` so
+  collectstatic runs automatically on every future deploy
 - **Screenshot:** ![Bug 8](documentation/images/bugs/bug-08-static-files.png)
 
 ---
