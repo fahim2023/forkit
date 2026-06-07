@@ -681,6 +681,19 @@ _(Add manual testing table here)_
 | View profile page               | Profile shows user's recipes           |           |
 | Log out                         | Session ended, redirected to homepage  |           |
 
+### Automated Testing
+
+#### Form Tests
+
+All form tests were run using Django's built-in testing framework.
+
+| Test                          | Description                         | Result | Screenshot                                                                  |
+| ----------------------------- | ----------------------------------- | ------ | --------------------------------------------------------------------------- |
+| test_form_is_valid            | Form valid with all required fields | Pass   | ![](documentation/images/testing/test-forms-pass.png)                       |
+| test_title_is_required        | Form invalid without title          | Pass   | ![](documentation/images/testing/test-forms-title-required-pass.png)        |
+| test_ingredients_is_required  | Form invalid without ingredients    | Pass   | ![](documentation/images/testing/test-forms-ingredients-required-pass.png)  |
+| test_instructions_is_required | Form invalid without instructions   | Pass   | ![](documentation/images/testing/test-forms-instructions-required-pass.png) |
+
 ### Validator Testing
 
 | File   | Validator      | Result         |
