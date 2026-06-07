@@ -812,6 +812,25 @@ Tested on the following devices and browsers:
 - **Before:** ![HTML error](documentation/images/validation/html-homepage-error.png)
 - **After:** ![HTML pass](documentation/images/validation/html-homepage-pass.png)
 
+### Bug 17 — HTML heading hierarchy errors in recipe detail page
+
+- **Issue:** Multiple heading hierarchy errors — `h3` headings
+  skipping from `h1`, and `h5` headings skipping levels
+- **Fix:** Changed all headings to correct semantic levels using
+  Bootstrap classes to maintain visual appearance
+- **Attempt 1 (2 errors):** ![Error 1](documentation/images/validation/html-recipe-detail-error1.png)
+- **Attempt 2 (1 error):** ![Error 2](documentation/images/validation/html-recipe-detail-error2.png)
+- **Final pass:** ![Pass](documentation/images/validation/html-recipe-detail-pass.png)
+
+### Bug 18 — Missing h1 heading on login page
+
+- **Issue:** The login page had no `h1` heading — "Welcome back"
+  was an `h2` which triggered a warning in the HTML validator
+- **Fix:** Changed `h2` to `h1` with Bootstrap `h2` class to
+  maintain visual appearance while fixing the semantic structure
+- **Before:** ![Login warning](documentation/images/validation/html-login-warning.png)
+- **After:** ![Login pass](documentation/images/validation/html-login-pass.png)
+
 ---
 
 ## Credits
