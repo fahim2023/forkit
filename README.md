@@ -873,6 +873,16 @@ Tested on the following devices and browsers:
 - **Before:** ![Profile warning](documentation/images/validation/html-profile-warning.png)
 - **After:** ![Profile pass](documentation/images/validation/html-profile-pass.png)
 
+### Bug 20 — Automated test failing due to required category field
+
+- **Issue:** The `test_form_is_valid` test was failing because
+  `category` is a required ForeignKey field but no category
+  object was being created in the test data
+- **Fix:** Added a `setUp` method to create a test `Category`
+  object and passed its ID to the form data
+- **Before:** ![Test fail](documentation/images/testing/test-forms-fail.png)
+- **After:** ![Test pass](documentation/images/testing/test-forms-pass.png)
+
 ---
 
 ## Credits

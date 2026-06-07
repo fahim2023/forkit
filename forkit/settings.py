@@ -114,7 +114,8 @@ WSGI_APPLICATION = "forkit.wsgi.application"
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 if 'test' in sys.argv:
     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
-
+    DATABASES['default']['NAME'] = ':memory:'
+    DATABASES['default'].pop('OPTIONS', None)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
