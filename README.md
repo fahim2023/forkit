@@ -803,6 +803,15 @@ Tested on the following devices and browsers:
   collectstatic runs automatically on every future deploy
 - **Screenshot:** ![Bug 8](documentation/images/bugs/bug-08-static-files.png)
 
+### Bug 16 — HTML heading hierarchy error on homepage
+
+- **Issue:** `h5` heading in recipe cards was skipping heading
+  levels, jumping from `h1` to `h5`
+- **Fix:** Changed `h5` to `h2` with Bootstrap `h5` class to
+  maintain visual styling while fixing semantic hierarchy
+- **Before:** ![HTML error](documentation/images/validation/html-homepage-error.png)
+- **After:** ![HTML pass](documentation/images/validation/html-homepage-pass.png)
+
 ---
 
 ## Credits
