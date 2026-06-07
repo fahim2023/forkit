@@ -236,6 +236,15 @@ Each user can only rate a recipe once — submitting a new rating updates
 their existing one. The average rating is displayed on both the homepage
 card and the recipe detail page.
 
+### Success Messages
+
+![Success Message](documentation/images/features/auto-dismiss-message.png)
+
+Django messages framework is used throughout to provide feedback on
+all user actions including adding, editing and deleting recipes and
+comments, and logging in and out. Messages automatically disappear
+after 3 seconds using a custom JavaScript function in `static/js/main.js`.
+
 ### Navigation
 
 _(Add screenshot)_
@@ -465,6 +474,16 @@ in production.
   `MediaCloudinaryStorage` for Cloudinary
 - **Before:** ![Bug 9 before](documentation/images/bugs/bug-09-cloudinary-before.png)
 - **After:** ![Bug 9 after](documentation/images/bugs/bug-09-cloudinary-after.png)
+
+### Bug 10 — collectstatic copying 0 files
+
+- **Issue:** `collectstatic` was copying 0 files because
+  `cloudinary_storage` was listed before `django.contrib.staticfiles`
+  in `INSTALLED_APPS`, causing it to intercept the static files
+  collection process
+- **Fix:** Moved `cloudinary_storage` to after
+  `django.contrib.staticfiles` in `INSTALLED_APPS`
+- **Screenshot:** ![Bug 10](documentation/images/bugs/bug-10-collectstatic.png)
 
 ---
 
