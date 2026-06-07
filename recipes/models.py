@@ -36,7 +36,9 @@ class Recipe(models.Model):
     cooking_time = models.IntegerField(help_text="Time in minutes")
     servings = models.IntegerField(default=4)
     image = models.ImageField(upload_to="recipes/", blank=True, null=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipes")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="recipes"
+    )
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, related_name="recipes"
     )
@@ -62,7 +64,9 @@ class Comment(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="comments"
     )
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="comments"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -80,9 +84,15 @@ class Rating(models.Model):
     rate a recipe once. Used to calculate average recipe ratings.
     """
 
-    score = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="ratings")
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="ratings")
+    score = models.IntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)]
+    )
+    recipe = models.ForeignKey(
+        Recipe, on_delete=models.CASCADE, related_name="ratings"
+    )
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="ratings"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

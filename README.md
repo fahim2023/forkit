@@ -492,6 +492,57 @@ in production.
   `django.contrib.staticfiles` in `INSTALLED_APPS`
 - **Screenshot:** ![Bug 10](documentation/images/bugs/bug-10-collectstatic.png)
 
+### Bug 11 — PEP8 line too long in views.py
+
+- **Issue:** Line 53 in `views.py` was 81 characters long,
+  exceeding the PEP8 limit of 79 characters
+- **Fix:** Split the `Comment.objects.create()` call across
+  multiple lines and added `pyproject.toml` to configure Black
+  formatter to respect 79 character limit
+- **Before:** ![PEP8 error](documentation/images/validation/pep8-views-error.png)
+- **After:** ![PEP8 pass](documentation/images/validation/pep8-views-pass.png)
+
+### Bug 12 — PEP8 errors in models.py
+
+- **Issue:** 5 lines in `models.py` exceeded the 79 character
+  PEP8 limit on lines 39, 65, 83, 84 and 85 — mainly ForeignKey
+  definitions that were too long
+- **Fix:** Split the long lines across multiple lines to comply
+  with PEP8 standards
+- **Before:** ![PEP8 models error](documentation/images/validation/pep8-models-error.png)
+- **After:** ![PEP8 models pass](documentation/images/validation/pep8-models-pass.png)
+
+### Bug 13 — PEP8 errors in forms.py
+
+- **Issue:** 3 lines in `forms.py` exceeded the 79 character
+  PEP8 limit on lines 25, 44 and 51 — mainly long placeholder
+  text strings in the widget definitions
+- **Fix:** Split long placeholder strings across multiple lines
+  using Python's implicit string concatenation
+- **Before:** ![PEP8 forms error](documentation/images/validation/pep8-forms-error.png)
+- **After:** ![PEP8 forms pass](documentation/images/validation/pep8-forms-pass.png)
+
+### Bug 14 — PEP8 errors in urls.py
+
+- **Issue:** Lines 9 and 11 in `recipes/urls.py` exceeded the
+  79 character PEP8 limit due to long URL path definitions
+- **Fix:** Split the long path definitions across multiple lines
+- **Before:** ![PEP8 urls error](documentation/images/validation/pep8-urls-error.png)
+- **After:** ![PEP8 urls pass](documentation/images/validation/pep8-urls-pass.png)
+
+### Bug 15 — PEP8 errors in settings.py
+
+- **Issue:** Multiple errors in `settings.py` — lines 119, 122,
+  125, 128 were too long due to `AUTH_PASSWORD_VALIDATORS` class
+  names, and lines 127, 133, 139 had trailing whitespace
+- **Fix:** Split the validator class names across multiple lines
+  using Python string concatenation and used VS Code
+  "Trim Trailing Whitespace" to remove hidden whitespace. Added
+  `# fmt: off` and `# fmt: on` to prevent Black from reformatting
+- **Before (long lines):** ![Settings error 1](documentation/images/validation/pep8-settings-error-long.png)
+- **Before (whitespace):** ![Settings error 2](documentation/images/validation/pep8-settings-error-whitespace.png)
+- **After:** ![Settings pass](documentation/images/validation/pep8-settings-pass.png)
+
 ---
 
 ## Deployment
@@ -637,6 +688,20 @@ _(Add manual testing table here)_
 | HTML   | W3C            | _(add result)_ |
 | CSS    | Jigsaw         | _(add result)_ |
 | Python | CI PEP8 Linter | _(add result)_ |
+
+#### Python PEP8 Validation
+
+All Python files were validated using the [CI Python Linter](https://pep8ci.herokuapp.com/).
+
+| File            | Result  | Screenshot                                                                |
+| --------------- | ------- | ------------------------------------------------------------------------- |
+| views.py        | ✅ Pass | ![views](documentation/images/validation/pep8-views-pass.png)             |
+| models.py       | ✅ Pass | ![models](documentation/images/validation/pep8-models-pass.png)           |
+| forms.py        | ✅ Pass | ![forms](documentation/images/validation/pep8-forms-pass.png)             |
+| admin.py        | ✅ Pass | ![admin](documentation/images/validation/pep8-admin-pass.png)             |
+| recipes/urls.py | ✅ Pass | ![urls](documentation/images/validation/pep8-urls-pass.png)               |
+| settings.py     | ✅ Pass | ![settings](documentation/images/validation/pep8-settings-pass.png)       |
+| forkit/urls.py  | ✅ Pass | ![forkit urls](documentation/images/validation/pep8-forkit-urls-pass.png) |
 
 ### Lighthouse
 

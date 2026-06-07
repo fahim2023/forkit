@@ -22,7 +22,10 @@ class RecipeForm(forms.ModelForm):
         ]
         widgets = {
             "title": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "e.g. Grandma's Pasta"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "e.g. Grandma's Pasta",
+                }
             ),
             "description": forms.TextInput(
                 attrs={
@@ -41,14 +44,19 @@ class RecipeForm(forms.ModelForm):
                 attrs={
                     "class": "form-control",
                     "rows": 6,
-                    "placeholder": "200g spaghetti\n4 egg yolks\n100g pecorino...",
+                    "placeholder": (
+                        "200g spaghetti\n4 egg yolks\n" "100g pecorino..."
+                    ),
                 }
             ),
             "instructions": forms.Textarea(
                 attrs={
                     "class": "form-control",
                     "rows": 6,
-                    "placeholder": "Boil pasta in salted water\nWhisk eggs with cheese...",
+                    "placeholder": (
+                        "Boil pasta in salted water\n"
+                        "Whisk eggs with cheese..."
+                    ),
                 }
             ),
             "image": forms.FileInput(

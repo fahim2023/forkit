@@ -62,7 +62,7 @@
                 {% if recipe.category %}
                 <span class="category-badge mb-2 d-inline-block">{{ recipe.category.name }}</span>
                 {% endif %}
-                <h5 class="card-title">{{ recipe.title }}</h5>
+                <h2 class="card-title h5">{{ recipe.title }}</h2>
                 <p class="card-text text-muted small">{{ recipe.description|truncatewords:15 }}</p>
             </div>
             <div class="card-footer bg-white border-top-0">
