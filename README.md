@@ -708,6 +708,18 @@ All HTML pages were validated using the [W3C Markup Validator](https://validator
 | Logout        | Pass   | ![](documentation/images/validation/html-logout-pass.png)        |
 | 404 Page      | Pass   | ![](documentation/images/validation/html-404-pass.png)           |
 
+#### CSS Validation
+
+CSS was validated using the [W3C Jigsaw Validator](https://jigsaw.w3.org/css-validator/).
+
+| File      | Result           | Screenshot                                        |
+| --------- | ---------------- | ------------------------------------------------- |
+| style.css | Pass - No errors | ![](documentation/images/validation/css-pass.png) |
+
+> Note: 10 warnings were shown relating to CSS custom variables
+> (`:root` variables) which the validator cannot statically check.
+> These are not errors and do not affect the validity of the CSS.
+
 #### Python PEP8 Validation
 
 All Python files were validated using the [CI Python Linter](https://pep8ci.herokuapp.com/).
