@@ -71,7 +71,7 @@
 
       <!-- Ingredients -->
 <div class="mb-4">
-    <h3>Ingredients</h3>
+    <h2 class="h3">Ingredients</h2>
     <ul class="ingredients-list">
         {% for ingredient in recipe.ingredients.splitlines %}
         {% if ingredient %}
@@ -83,7 +83,7 @@
 
 <!-- Instructions -->
 <div class="mb-4">
-    <h3>Instructions</h3>
+    <h2 class="h3">Instructions</h2>
     <ol class="instructions-list">
         {% for step in recipe.instructions.splitlines %}
         {% if step %}
@@ -117,7 +117,7 @@
 
         <!-- Comments -->
         <div class="mb-4">
-            <h3>Comments ({{ comments.count }})</h3>
+            <h2 class="h3">Comments ({{ comments.count }})</h2>
 
             {% if user.is_authenticated %}
             <form method="POST" class="mb-4">
