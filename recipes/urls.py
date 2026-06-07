@@ -12,4 +12,5 @@ urlpatterns = [
     ),
     path("recipe/<slug:slug>/rate/", views.rate_recipe, name="rate_recipe"),
     path("profile/", views.profile, name="profile"),
+    path("profile/<str:username>/", views.user_profile, name="user_profile"),
 ]
