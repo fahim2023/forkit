@@ -335,6 +335,13 @@ _(Add screenshot)_
 
 Displays the user's username, email, bio and a grid of all their posted recipes.
 
+### User Profile Page
+
+![User Profile Page](documentation/images/features/user-profile-page.png)
+
+Clicking "View Profile" on any recipe takes visitors to that user's
+public profile page showing all their posted recipes.
+
 ### Login / Register
 
 ![Login Page](documentation/images/features/login-page.png)
