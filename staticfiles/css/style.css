@@ -1,0 +1,78 @@
+/* Custom CSS Variables */
+:root {
+  --terracotta: #c46438;
+  --olive-green: #58b783;
+  --cream: #faf7f2;
+  --dark-brown: #2c1810;
+}
+
+/* Global Styles */
+body {
+  background-color: var(--cream);
+  color: var(--dark-brown);
+}
+
+/* Navbar */
+.navbar-brand {
+  color: var(--terracotta) !important;
+  font-size: 1.5rem;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--terracotta);
+  border-color: var(--terracotta);
+}
+
+.btn-primary:hover {
+  background-color: #a8532e;
+  border-color: #a8532e;
+}
+
+/* Recipe Cards */
+.recipe-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+}
+
+.recipe-card img {
+  border-radius: 12px 12px 0 0;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Category Badges */
+.category-badge {
+  background-color: var(--olive-green);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+/* Star Rating */
+.stars {
+  color: #f4a623;
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: #fdf5ee;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero-section h1 span {
+  color: var(--terracotta);
+}
