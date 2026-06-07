@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.db.models import Avg
+from django.db.models import Avg, Q
 from .models import Recipe, Category, Comment, Rating
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -16,9 +16,23 @@ def home(request):
     recipes = Recipe.objects.all().annotate(avg_rating=Avg("ratings__score"))
     categories = Category.objects.all()
 
+    # Search functionality
+    query = request.GET.get("q")
+    if query:
+        recipes = recipes.filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        )
+
+    # Category filter
+    category_slug = request.GET.get("category")
+    if category_slug:
+        recipes = recipes.filter(category__slug=category_slug)
+
     context = {
         "recipes": recipes,
         "categories": categories,
+        "query": query,
+        "selected_category": category_slug,
     }
     return render(request, "recipes/home.html", context)
 
