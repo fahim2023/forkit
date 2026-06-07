@@ -199,3 +199,22 @@ def profile(request):
 def custom_404(request, exception):
     """Custom 404 error page."""
     return render(request, "404.html", status=404)
+
+
+def user_profile(request, username):
+    """
+    Display a public profile page for any user,
+    showing all their posted recipes.
+    """
+    from django.contrib.auth.models import User
+
+    profile_user = get_object_or_404(User, username=username)
+    recipes = Recipe.objects.filter(author=profile_user).annotate(
+        avg_rating=Avg("ratings__score")
+    )
+
+    context = {
+        "profile_user": profile_user,
+        "recipes": recipes,
+    }
+    return render(request, "recipes/user_profile.html", context)
