@@ -256,6 +256,16 @@ _(Add screenshot)_
 
 Displays a hero section with a search bar and category filter buttons. Below, recipe cards are displayed in a responsive grid showing the recipe image, title, category, rating, cooking time and author.
 
+### Search and Category Filter
+
+![Category Filter](documentation/images/features/category-filter.png)
+
+![Search Results](documentation/images/features/search-results.png)
+
+Users can filter recipes by category using the filter buttons on the
+homepage. They can also search for recipes by keyword using the search
+bar. Both features work together and update the recipe grid instantly.
+
 ### Recipe Detail Page
 
 ![Recipe Detail Page](documentation/images/features/recipe-detail-early.png)
