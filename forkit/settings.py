@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 # fmt: off
 from pathlib import Path
 import os
+import sys
+
 import dj_database_url
 from django.contrib.messages import constants as messages
 
@@ -110,6 +112,8 @@ WSGI_APPLICATION = "forkit.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 
 # Password validation
