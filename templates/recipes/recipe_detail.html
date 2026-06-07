@@ -162,7 +162,7 @@
             <div class="card-body">
                 <h5>About the Author</h5>
                 <p class="text-muted">{{ recipe.author.username }}</p>
-                <a href="#" class="btn btn-outline-secondary btn-sm w-100">
+                <a href="{% url 'user_profile' recipe.author.username %}" class="btn btn-outline-secondary btn-sm w-100">
                     View Profile
                 </a>
             </div>
