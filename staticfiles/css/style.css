@@ -76,3 +76,60 @@ body {
 .hero-section h1 span {
   color: var(--terracotta);
 }
+/* Ingredients list */
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0ebe4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.ingredients-list li::before {
+  content: "";
+  min-width: 10px;
+  height: 10px;
+  background-color: var(--terracotta);
+  border-radius: 50%;
+}
+
+/* Instructions list */
+.instructions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: step-counter;
+}
+
+.instructions-list li {
+  padding: 14px 0 14px 52px;
+  border-bottom: 1px solid #f0ebe4;
+  position: relative;
+  counter-increment: step-counter;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.instructions-list li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 34px;
+  height: 34px;
+  background-color: var(--terracotta);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
