@@ -734,16 +734,16 @@ All Python files were validated using the [CI Python Linter](https://pep8ci.hero
 | settings.py     | Pass   | ![settings](documentation/images/validation/pep8-settings-pass.png)       |
 | forkit/urls.py  | Pass   | ![forkit urls](documentation/images/validation/pep8-forkit-urls-pass.png) |
 
-### Lighthouse
+#### Lighthouse
 
-_(Add Lighthouse screenshots here)_
-
-| Page          | Performance | Accessibility | Best Practices | SEO |
-| ------------- | ----------- | ------------- | -------------- | --- |
-| Homepage      |             |               |                |     |
-| Recipe Detail |             |               |                |     |
-| Add Recipe    |             |               |                |     |
-| Profile       |             |               |                |     |
+| Page          | Device  | Performance | Accessibility | Best Practices | SEO | Screenshot                                                                |
+| ------------- | ------- | ----------- | ------------- | -------------- | --- | ------------------------------------------------------------------------- |
+| Homepage      | Desktop | 94          | 94            | 100            | 91  | ![](documentation/images/lighthouse/lighthouse-homepage-desktop.png)      |
+| Homepage      | Mobile  | 77          | 83            | 100            | 91  | ![](documentation/images/lighthouse/lighthouse-homepage-mobile.png)       |
+| Recipe Detail | Desktop | 95          | 93            | 100            | 91  | ![](documentation/images/lighthouse/lighthouse-recipe-detail-desktop.png) |
+| Recipe Detail | Mobile  | 84          | 84            | 100            | 91  | ![](documentation/images/lighthouse/lighthouse-recipe-detail-mobile.png)  |
+| Profile       | Desktop | 99          | 95            | 100            | 98  | ![](documentation/images/lighthouse/lighthouse-profile-desktop.png)       |
+| Profile       | Mobile  | 95          | 88            | 100            | 98  | ![](documentation/images/lighthouse/lighthouse-profile-mobile.png)        |
 
 ### Responsiveness
 
