@@ -689,19 +689,38 @@ _(Add manual testing table here)_
 | CSS    | Jigsaw         | _(add result)_ |
 | Python | CI PEP8 Linter | _(add result)_ |
 
+### Validator Testing
+
+#### HTML Validation
+
+All HTML pages were validated using the [W3C Markup Validator](https://validator.w3.org/).
+
+| Page          | Result | Screenshot                                                       |
+| ------------- | ------ | ---------------------------------------------------------------- |
+| Homepage      | Pass   | ![](documentation/images/validation/html-homepage-pass.png)      |
+| Recipe Detail | Pass   | ![](documentation/images/validation/html-recipe-detail-pass.png) |
+| Add Recipe    | Pass   | ![](documentation/images/validation/html-add-recipe-pass.png)    |
+| Edit Recipe   | Pass   | ![](documentation/images/validation/html-edit-recipe-pass.png)   |
+| Delete Recipe | Pass   | ![](documentation/images/validation/html-delete-pass.png)        |
+| Profile       | Pass   | ![](documentation/images/validation/html-profile-pass.png)       |
+| Login         | Pass   | ![](documentation/images/validation/html-login-pass.png)         |
+| Register      | Pass   | ![](documentation/images/validation/html-signup-pass.png)        |
+| Logout        | Pass   | ![](documentation/images/validation/html-logout-pass.png)        |
+| 404 Page      | Pass   | ![](documentation/images/validation/html-404-pass.png)           |
+
 #### Python PEP8 Validation
 
 All Python files were validated using the [CI Python Linter](https://pep8ci.herokuapp.com/).
 
-| File            | Result  | Screenshot                                                                |
-| --------------- | ------- | ------------------------------------------------------------------------- |
-| views.py        | ✅ Pass | ![views](documentation/images/validation/pep8-views-pass.png)             |
-| models.py       | ✅ Pass | ![models](documentation/images/validation/pep8-models-pass.png)           |
-| forms.py        | ✅ Pass | ![forms](documentation/images/validation/pep8-forms-pass.png)             |
-| admin.py        | ✅ Pass | ![admin](documentation/images/validation/pep8-admin-pass.png)             |
-| recipes/urls.py | ✅ Pass | ![urls](documentation/images/validation/pep8-urls-pass.png)               |
-| settings.py     | ✅ Pass | ![settings](documentation/images/validation/pep8-settings-pass.png)       |
-| forkit/urls.py  | ✅ Pass | ![forkit urls](documentation/images/validation/pep8-forkit-urls-pass.png) |
+| File            | Result | Screenshot                                                                |
+| --------------- | ------ | ------------------------------------------------------------------------- |
+| views.py        | Pass   | ![views](documentation/images/validation/pep8-views-pass.png)             |
+| models.py       | Pass   | ![models](documentation/images/validation/pep8-models-pass.png)           |
+| forms.py        | Pass   | ![forms](documentation/images/validation/pep8-forms-pass.png)             |
+| admin.py        | Pass   | ![admin](documentation/images/validation/pep8-admin-pass.png)             |
+| recipes/urls.py | Pass   | ![urls](documentation/images/validation/pep8-urls-pass.png)               |
+| settings.py     | Pass   | ![settings](documentation/images/validation/pep8-settings-pass.png)       |
+| forkit/urls.py  | Pass   | ![forkit urls](documentation/images/validation/pep8-forkit-urls-pass.png) |
 
 ### Lighthouse
 
@@ -830,6 +849,17 @@ Tested on the following devices and browsers:
   maintain visual appearance while fixing the semantic structure
 - **Before:** ![Login warning](documentation/images/validation/html-login-warning.png)
 - **After:** ![Login pass](documentation/images/validation/html-login-pass.png)
+
+### Bug 19 — HTML heading hierarchy errors on profile pages
+
+- **Issue:** Profile pages had missing `h1` headings and incorrect
+  heading hierarchy — username was `h2` with no `h1`, and section
+  headings were not in the correct order
+- **Fix:** Changed username heading to `h1` with Bootstrap `h2`
+  class, updated "My Recipes" to `h2`, and recipe card titles to
+  `h3` to maintain correct semantic hierarchy
+- **Before:** ![Profile warning](documentation/images/validation/html-profile-warning.png)
+- **After:** ![Profile pass](documentation/images/validation/html-profile-pass.png)
 
 ---
 
