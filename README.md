@@ -1,10 +1,10 @@
 # ForkIt
 
-[ForkIt](#) is a full-stack recipe sharing community built with Django, designed to bring together home cooks and food lovers. Users can discover, share and manage their own recipes whilst engaging with the community through comments and ratings.
+![ForkIt on all devices](documentation/images/amiresponsive.png)
 
-![amiresponsive screenshot](#) _(add amiresponsive screenshot here)_
+[ForkIt](https://forkit-app-397f94f54229.herokuapp.com/) is a full-stack recipe sharing community built with Django, designed to bring together home cooks and food lovers. Users can discover, share and manage their own recipes whilst engaging with the community through comments and ratings.
 
-[Click here to view the deployed site.](#) _(add Heroku URL here)_
+[Click here to view the deployed site.](https://forkit-app-397f94f54229.herokuapp.com/)
 
 ---
 
@@ -27,7 +27,12 @@
 - [Security Features](#security-features)
 - [Deployment](#deployment)
 - [Testing](#testing)
+  - [Automated Testing](#automated-testing)
+  - [Manual Testing](#manual-testing)
+  - [Validator Testing](#validator-testing)
+  - [Responsiveness](#responsiveness)
 - [Bugs](#bugs)
+- [Future Implementations](#future-implementations)
 - [Credits](#credits)
 
 ---
@@ -89,40 +94,38 @@ The site owner benefits by building an engaged food community and growing a valu
 
 ### Wireframes
 
-_(Add wireframe screenshots from Base44 here)_
-
 <details>
 <summary>Homepage</summary>
 
-![Wireframe of homepage](#) _(add wireframe image)_
+![Wireframe of homepage](documentation/images/wireframes/wireframe-homepage.png)
 
 </details>
 
 <details>
 <summary>Recipe Detail Page</summary>
 
-![Wireframe of recipe detail page](#) _(add wireframe image)_
+![Wireframe of recipe detail page](documentation/images/wireframes/wireframe-recipe-detail.png)
 
 </details>
 
 <details>
 <summary>Add Recipe Form</summary>
 
-![Wireframe of add recipe form](#) _(add wireframe image)_
+![Wireframe of add recipe form](documentation/images/wireframes/wireframe-add-recipe.png)
 
 </details>
 
 <details>
 <summary>Profile Page</summary>
 
-![Wireframe of profile page](#) _(add wireframe image)_
+![Wireframe of profile page](documentation/images/wireframes/wireframe-profile.png)
 
 </details>
 
 <details>
 <summary>Login / Register</summary>
 
-![Wireframe of login page](#) _(add wireframe image)_
+![Wireframe of login page](documentation/images/wireframes/wireframe-login.png)
 
 </details>
 
@@ -144,30 +147,30 @@ The application is built around five main entities:
 
 ### Database Schema
 
-| Model    | Field        | Type          | Notes      |
-| -------- | ------------ | ------------- | ---------- |
-| Category | name         | CharField     |            |
-| Category | slug         | SlugField     | Unique     |
-| Recipe   | title        | CharField     |            |
-| Recipe   | slug         | SlugField     | Unique     |
-| Recipe   | description  | TextField     |            |
-| Recipe   | ingredients  | TextField     |            |
-| Recipe   | instructions | TextField     |            |
-| Recipe   | cooking_time | IntegerField  | Minutes    |
-| Recipe   | servings     | IntegerField  | Default 4  |
-| Recipe   | image        | ImageField    | Optional   |
-| Recipe   | author       | ForeignKey    | → User     |
-| Recipe   | category     | ForeignKey    | → Category |
-| Recipe   | created_at   | DateTimeField | Auto       |
-| Recipe   | updated_at   | DateTimeField | Auto       |
-| Comment  | body         | TextField     |            |
-| Comment  | recipe       | ForeignKey    | → Recipe   |
-| Comment  | author       | ForeignKey    | → User     |
-| Comment  | created_at   | DateTimeField | Auto       |
-| Rating   | score        | IntegerField  | 1-5        |
-| Rating   | recipe       | ForeignKey    | → Recipe   |
-| Rating   | user         | ForeignKey    | → User     |
-| Rating   | created_at   | DateTimeField | Auto       |
+| Model    | Field        | Type          | Notes       |
+| -------- | ------------ | ------------- | ----------- |
+| Category | name         | CharField     |             |
+| Category | slug         | SlugField     | Unique      |
+| Recipe   | title        | CharField     |             |
+| Recipe   | slug         | SlugField     | Unique      |
+| Recipe   | description  | TextField     |             |
+| Recipe   | ingredients  | TextField     |             |
+| Recipe   | instructions | TextField     |             |
+| Recipe   | cooking_time | IntegerField  | Minutes     |
+| Recipe   | servings     | IntegerField  | Default 4   |
+| Recipe   | image        | ImageField    | Optional    |
+| Recipe   | author       | ForeignKey    | to User     |
+| Recipe   | category     | ForeignKey    | to Category |
+| Recipe   | created_at   | DateTimeField | Auto        |
+| Recipe   | updated_at   | DateTimeField | Auto        |
+| Comment  | body         | TextField     |             |
+| Comment  | recipe       | ForeignKey    | to Recipe   |
+| Comment  | author       | ForeignKey    | to User     |
+| Comment  | created_at   | DateTimeField | Auto        |
+| Rating   | score        | IntegerField  | 1-5         |
+| Rating   | recipe       | ForeignKey    | to Recipe   |
+| Rating   | user         | ForeignKey    | to User     |
+| Rating   | created_at   | DateTimeField | Auto        |
 
 **Relationships:**
 
@@ -185,8 +188,6 @@ The application is built around five main entities:
 
 ### Colour Scheme
 
-_(Add colour palette image here)_
-
 The colour scheme uses warm, food-inspired tones:
 
 - **Terracotta (#C46438)** — primary actions, buttons, highlights
@@ -198,10 +199,7 @@ These colours were chosen to evoke warmth and appetite, consistent with a food-f
 
 ### Typography
 
-_(Add font screenshots here)_
-
-- **Headings:** _(add font name)_
-- **Body text:** _(add font name)_
+Bootstrap 5's default system font stack is used throughout for clean, readable text across all devices.
 
 ### Imagery
 
@@ -211,43 +209,7 @@ Food photography is sourced from [Pexels](https://www.pexels.com/) which provide
 
 ## Features
 
-### Comments
-
-![Comment Added](documentation/images/features/comment-added.png)
-
-![Comment Delete Confirmation](documentation/images/features/comment-delete-confirmation.png)
-
-![Comment Deleted](documentation/images/features/comment-deleted.png)
-
-Logged in users can leave comments on any recipe. Comments display
-the author's username and date posted. The comment author sees a
-Delete button on their own comments. A confirmation page is displayed
-before deletion to prevent accidental deletions. On successful deletion
-the user is redirected back to the recipe with a success message.
-
-### Ratings
-
-![Rating Success](documentation/images/features/rating-success.png)
-
-![Homepage with Ratings](documentation/images/features/homepage-with-ratings.png)
-
-Logged in users can rate any recipe they did not author out of 5 stars.
-Each user can only rate a recipe once — submitting a new rating updates
-their existing one. The average rating is displayed on both the homepage
-card and the recipe detail page.
-
-### Success Messages
-
-![Success Message](documentation/images/features/auto-dismiss-message.png)
-
-Django messages framework is used throughout to provide feedback on
-all user actions including adding, editing and deleting recipes and
-comments, and logging in and out. Messages automatically disappear
-after 3 seconds using a custom JavaScript function in `static/js/main.js`.
-
 ### Navigation
-
-_(Add screenshot)_
 
 The navbar is fully responsive and collapses to a burger menu on mobile. It displays different links depending on the user's logged-in status:
 
@@ -258,11 +220,6 @@ The navbar is fully responsive and collapses to a burger menu on mobile. It disp
 
 ![Homepage](documentation/images/features/homepage-early.png)
 
-Displays a hero section with a search bar and category filter buttons.
-When no recipes exist, a "No recipes found" message is displayed with
-a prompt to add the first recipe.
-_(Add screenshot)_
-
 Displays a hero section with a search bar and category filter buttons. Below, recipe cards are displayed in a responsive grid showing the recipe image, title, category, rating, cooking time and author.
 
 ### Search and Category Filter
@@ -271,47 +228,27 @@ Displays a hero section with a search bar and category filter buttons. Below, re
 
 ![Search Results](documentation/images/features/search-results.png)
 
-Users can filter recipes by category using the filter buttons on the
-homepage. They can also search for recipes by keyword using the search
-bar. Both features work together and update the recipe grid instantly.
+Users can filter recipes by category using the filter buttons on the homepage. They can also search for recipes by keyword using the search bar.
 
 ### Recipe Detail Page
 
 ![Recipe Detail Page](documentation/images/features/recipe-detail-early.png)
 
-Displays the full recipe including a large header image, category badge,
-title, description, cooking time, servings, rating and author. Ingredients
-are listed clearly and instructions are displayed as numbered steps.
-Logged in users can leave comments and rate the recipe. The recipe author
-sees Edit and Delete buttons.
+Displays the full recipe including a large header image, category badge, title, description, cooking time, servings, rating and author. Ingredients are listed clearly and instructions are displayed as numbered steps. Logged in users can leave comments and rate the recipe. The recipe author sees Edit and Delete buttons.
 
-_(Add screenshot)_
-
-Displays the full recipe including a large header image, ingredients list, step-by-step instructions, average star rating, and a comments section.
-
-### Add / Edit Recipe
-
-### Edit Recipe
-
-![Edit Recipe Success](documentation/images/features/edit-recipe-success.png)
-
-Logged in users can edit their own recipes using the same form as the
-create page, pre-populated with the existing recipe data. If a user
-attempts to edit another user's recipe they are redirected back to the
-recipe detail page with an error message. On successful update the user
-is redirected to the recipe detail page with a success message.
-
-### Add / Edit Recipe
+### Add Recipe
 
 ![Add Recipe Form](documentation/images/features/add-recipe-form.png)
 
 ![Recipe Added Successfully](documentation/images/features/add-recipe-success.png)
 
-A form allowing logged in users to submit a new recipe using Django's
-ModelForm with full validation. On successful submission the user is
-redirected to the new recipe's detail page with a success message
-displayed. The form includes fields for title, description, category,
-cooking time, servings, ingredients and instructions.
+A form allowing logged in users to submit a new recipe using Django's ModelForm with full validation. On successful submission the user is redirected to the new recipe's detail page with a success message displayed.
+
+### Edit Recipe
+
+![Edit Recipe Success](documentation/images/features/edit-recipe-success.png)
+
+Logged in users can edit their own recipes using the same form as the create page, pre-populated with the existing recipe data. If a user attempts to edit another user's recipe they are redirected with an error message.
 
 ### Delete Recipe
 
@@ -319,30 +256,37 @@ cooking time, servings, ingredients and instructions.
 
 ![Delete Success](documentation/images/features/delete-success.png)
 
-A confirmation page is displayed before deleting a recipe to prevent
-accidental deletions. Only the recipe author can delete their own recipes.
-On confirmation the recipe is deleted and the user is redirected to the
-homepage with a success message.
+A confirmation page is displayed before deleting a recipe to prevent accidental deletions. Only the recipe author can delete their own recipes.
+
+### Comments
+
+![Comment Added](documentation/images/features/comment-added.png)
+
+![Comment Delete Confirmation](documentation/images/features/comment-delete-confirmation.png)
+
+![Comment Deleted](documentation/images/features/comment-deleted.png)
+
+Logged in users can leave comments on any recipe. The comment author sees a Delete button on their own comments. A confirmation page is displayed before deletion.
+
+### Ratings
+
+![Rating Success](documentation/images/features/rating-success.png)
+
+Logged in users can rate any recipe they did not author out of 5 stars. Each user can only rate a recipe once. The average rating is displayed on both the homepage card and the recipe detail page.
 
 ### Profile Page
 
 ![Profile Page](documentation/images/features/profile-page.png)
 
-Displays the logged in user's avatar, username and email. Below,
-all their posted recipes are shown in a card grid with View, Edit
-and Delete buttons for easy management of their content.
-_(Add screenshot)_
-
-Displays the user's username, email, bio and a grid of all their posted recipes.
+Displays the logged in user's avatar, username and email. Below, all their posted recipes are shown in a card grid with View, Edit and Delete buttons.
 
 ### User Profile Page
 
 ![User Profile Page](documentation/images/features/user-profile-page.png)
 
-Clicking "View Profile" on any recipe takes visitors to that user's
-public profile page showing all their posted recipes.
+Clicking "View Profile" on any recipe takes visitors to that user's public profile page showing all their posted recipes.
 
-### Login / Register
+### Login / Register / Logout
 
 ![Login Page](documentation/images/features/login-page.png)
 
@@ -350,43 +294,21 @@ public profile page showing all their posted recipes.
 
 ![Logout Page](documentation/images/features/logout-page.png)
 
-Custom authentication templates built with Django Allauth and Crispy
-Forms. The login page allows existing users to sign in. The register
-page allows new users to create an account. The logout page asks for
-confirmation before signing out. Each page links to the other for
-easy navigation.
+Custom authentication templates built with Django Allauth and Crispy Forms.
 
-_(Add screenshot)_
+### Success Messages
 
-Clean, centred authentication forms built with Django Allauth.
+![Success Message](documentation/images/features/auto-dismiss-message.png)
 
-### Delete Confirmation
-
-_(Add screenshot)_
-
-A confirmation modal is displayed before any delete action to prevent accidental deletions.
-
-### Success / Error Messages
-
-_(Add screenshot)_
-
-Django messages framework used throughout to provide feedback on all user actions (create, edit, delete, login, logout).
+Django messages framework used throughout for feedback on all user actions. Messages automatically disappear after 3 seconds via a custom JavaScript function in `static/js/main.js`.
 
 ### Custom 404 Page
 
 ![Custom 404 Page](documentation/images/features/404-page.png)
 
-A custom 404 page is displayed when a user navigates to a page that
-doesn't exist. The page includes a link back to the homepage so users
-never need to use the browser's back button.
-
-_(Add screenshot)_
-
-A custom 404 page redirects users back to the homepage without needing browser navigation buttons.
+A custom 404 page is displayed when a user navigates to a page that does not exist. Includes a link back to the homepage so users never need the browser's back button.
 
 ### Admin Panel
-
-_(Add screenshot)_
 
 The Django admin panel allows the site owner to manage all recipes, categories, comments and ratings.
 
@@ -404,7 +326,7 @@ The Django admin panel allows the site owner to manage all recipes, categories, 
 **Backend:**
 
 - Python 3
-- Django
+- Django 6
 
 **Database:**
 
@@ -416,17 +338,8 @@ The Django admin panel allows the site owner to manage all recipes, categories, 
 
 **Deployment:**
 
-### Static Files on Heroku
-
-![Heroku styles working](documentation/images/features/heroku-styles-working.png)
-
-Static files are served using WhiteNoise. The `Procfile` includes a
-`release` command that runs `collectstatic` automatically on every
-deployment, ensuring CSS and JavaScript files are always available
-in production.
-
 - Heroku
-- Whitenoise (static files)
+- WhiteNoise (static files)
 - Gunicorn (web server)
 
 **Development Tools:**
@@ -434,13 +347,15 @@ in production.
 - Git & GitHub (version control)
 - VS Code
 - Chrome DevTools
+- [Base44](https://app.base44.com/) (wireframe design)
 
 **Validation Tools:**
 
 - [W3C HTML Validator](https://validator.w3.org/)
 - [W3C CSS Validator (Jigsaw)](https://jigsaw.w3.org/css-validator/)
 - [CI Python Linter](https://pep8ci.herokuapp.com/)
-- Chrome Lighthouse
+- Chrome Lighthouse / PageSpeed Insights
+- [Amiresponsive](https://ui.dev/amiresponsive)
 
 **Django Packages:**
 
@@ -459,89 +374,13 @@ in production.
 
 ## Security Features
 
-- All secret keys and database URLs are stored in environment variables (`env.py` locally, Heroku Config Vars in production)
+- All secret keys and database URLs stored in environment variables (`env.py` locally, Heroku Config Vars in production)
 - `env.py` is listed in `.gitignore` and never committed to the repository
 - `DEBUG` is set to `False` in production via environment variable
-- All recipe and comment edit/delete views are protected with `@login_required`
-- Users can only edit or delete their own content — ownership is checked in every relevant view
-- CSRF protection is enabled on all forms
-- `MESSAGE_TAGS` configured in `settings.py` to map Django message
-  levels to Bootstrap alert classes so error, success and warning
-  messages display with correct colours
-
-### Bug 9 — Cloudinary images not uploading to Heroku
-
-- **Issue:** Images were not being sent to Cloudinary because
-  `DEFAULT_FILE_STORAGE` is deprecated in Django 6, and
-  `CompressedManifestStaticFilesStorage` was causing a
-  `FileNotFoundError` when collecting Cloudinary's JS files
-- **Fix:** Replaced `DEFAULT_FILE_STORAGE` and `STATICFILES_STORAGE`
-  with the new Django `STORAGES` dictionary setting, using
-  `StaticFilesStorage` for WhiteNoise and
-  `MediaCloudinaryStorage` for Cloudinary
-- **Before:** ![Bug 9 before](documentation/images/bugs/bug-09-cloudinary-before.png)
-- **After:** ![Bug 9 after](documentation/images/bugs/bug-09-cloudinary-after.png)
-
-### Bug 10 — collectstatic copying 0 files
-
-- **Issue:** `collectstatic` was copying 0 files because
-  `cloudinary_storage` was listed before `django.contrib.staticfiles`
-  in `INSTALLED_APPS`, causing it to intercept the static files
-  collection process
-- **Fix:** Moved `cloudinary_storage` to after
-  `django.contrib.staticfiles` in `INSTALLED_APPS`
-- **Screenshot:** ![Bug 10](documentation/images/bugs/bug-10-collectstatic.png)
-
-### Bug 11 — PEP8 line too long in views.py
-
-- **Issue:** Line 53 in `views.py` was 81 characters long,
-  exceeding the PEP8 limit of 79 characters
-- **Fix:** Split the `Comment.objects.create()` call across
-  multiple lines and added `pyproject.toml` to configure Black
-  formatter to respect 79 character limit
-- **Before:** ![PEP8 error](documentation/images/validation/pep8-views-error.png)
-- **After:** ![PEP8 pass](documentation/images/validation/pep8-views-pass.png)
-
-### Bug 12 — PEP8 errors in models.py
-
-- **Issue:** 5 lines in `models.py` exceeded the 79 character
-  PEP8 limit on lines 39, 65, 83, 84 and 85 — mainly ForeignKey
-  definitions that were too long
-- **Fix:** Split the long lines across multiple lines to comply
-  with PEP8 standards
-- **Before:** ![PEP8 models error](documentation/images/validation/pep8-models-error.png)
-- **After:** ![PEP8 models pass](documentation/images/validation/pep8-models-pass.png)
-
-### Bug 13 — PEP8 errors in forms.py
-
-- **Issue:** 3 lines in `forms.py` exceeded the 79 character
-  PEP8 limit on lines 25, 44 and 51 — mainly long placeholder
-  text strings in the widget definitions
-- **Fix:** Split long placeholder strings across multiple lines
-  using Python's implicit string concatenation
-- **Before:** ![PEP8 forms error](documentation/images/validation/pep8-forms-error.png)
-- **After:** ![PEP8 forms pass](documentation/images/validation/pep8-forms-pass.png)
-
-### Bug 14 — PEP8 errors in urls.py
-
-- **Issue:** Lines 9 and 11 in `recipes/urls.py` exceeded the
-  79 character PEP8 limit due to long URL path definitions
-- **Fix:** Split the long path definitions across multiple lines
-- **Before:** ![PEP8 urls error](documentation/images/validation/pep8-urls-error.png)
-- **After:** ![PEP8 urls pass](documentation/images/validation/pep8-urls-pass.png)
-
-### Bug 15 — PEP8 errors in settings.py
-
-- **Issue:** Multiple errors in `settings.py` — lines 119, 122,
-  125, 128 were too long due to `AUTH_PASSWORD_VALIDATORS` class
-  names, and lines 127, 133, 139 had trailing whitespace
-- **Fix:** Split the validator class names across multiple lines
-  using Python string concatenation and used VS Code
-  "Trim Trailing Whitespace" to remove hidden whitespace. Added
-  `# fmt: off` and `# fmt: on` to prevent Black from reformatting
-- **Before (long lines):** ![Settings error 1](documentation/images/validation/pep8-settings-error-long.png)
-- **Before (whitespace):** ![Settings error 2](documentation/images/validation/pep8-settings-error-whitespace.png)
-- **After:** ![Settings pass](documentation/images/validation/pep8-settings-pass.png)
+- All recipe and comment edit/delete views protected with `@login_required`
+- Users can only edit or delete their own content — ownership checked in every relevant view
+- CSRF protection enabled on all forms
+- `MESSAGE_TAGS` configured in `settings.py` to map Django message levels to Bootstrap alert classes
 
 ---
 
@@ -600,9 +439,7 @@ python manage.py migrate
 python manage.py loaddata categories.json
 ```
 
-> **Note:** Initial category data is stored as a fixture in
-> `recipes/fixtures/categories.json`. Run this command any time
-> the database is wiped to restore the default categories.
+> **Note:** Initial category data is stored as a fixture in `recipes/fixtures/categories.json`. Run this command any time the database is wiped to restore the default categories.
 
 6. Create a superuser:
 
@@ -637,7 +474,6 @@ heroku create your-app-name
 heroku config:set SECRET_KEY='your-secret-key'
 heroku config:set DATABASE_URL='your-database-url'
 heroku config:set CLOUDINARY_URL='your-cloudinary-url'
-heroku config:set DISABLE_COLLECTSTATIC=1
 ```
 
 5. Push to Heroku:
@@ -652,17 +488,50 @@ git push heroku main
 heroku run python manage.py migrate
 ```
 
+### Static Files
+
+Static files are served using WhiteNoise. The `Procfile` includes a `release` command that runs `collectstatic` automatically on every deployment:
+
+```
+web: gunicorn forkit.wsgi
+release: python manage.py collectstatic --noinput
+```
+
 ---
 
 ## Testing
 
-_(This section will be completed after all features are built)_
+### Automated Testing
+
+All automated tests were written using Django's built-in testing framework and use SQLite in memory for speed and isolation from the production database.
+
+#### Form Tests
+
+| Test                          | Description                         | Result | Screenshot                                                                  |
+| ----------------------------- | ----------------------------------- | ------ | --------------------------------------------------------------------------- |
+| test_form_is_valid            | Form valid with all required fields | Pass   | ![](documentation/images/testing/test-forms-pass.png)                       |
+| test_title_is_required        | Form invalid without title          | Pass   | ![](documentation/images/testing/test-forms-title-required-pass.png)        |
+| test_ingredients_is_required  | Form invalid without ingredients    | Pass   | ![](documentation/images/testing/test-forms-ingredients-required-pass.png)  |
+| test_instructions_is_required | Form invalid without instructions   | Pass   | ![](documentation/images/testing/test-forms-instructions-required-pass.png) |
+
+#### View Tests
+
+| Test                                | Description                                       | Result | Screenshot                                                                   |
+| ----------------------------------- | ------------------------------------------------- | ------ | ---------------------------------------------------------------------------- |
+| test_home_page_loads                | Homepage loads with correct template              | Pass   | ![](documentation/images/testing/test-views-home-pass.png)                   |
+| test_recipe_detail_loads            | Recipe detail page loads correctly                | Pass   | ![](documentation/images/testing/test-views-recipe-detail-pass.png)          |
+| test_recipe_create_requires_login   | Unauthenticated users redirected from create page | Pass   | ![](documentation/images/testing/test-views-create-login-required-pass.png)  |
+| test_recipe_create_logged_in        | Logged in users can access create page            | Pass   | ![](documentation/images/testing/test-views-create-logged-in-pass.png)       |
+| test_profile_requires_login         | Unauthenticated users redirected from profile     | Pass   | ![](documentation/images/testing/test-views-profile-login-required-pass.png) |
+| test_recipe_edit_requires_ownership | Non-authors cannot edit recipes                   | Pass   | ![](documentation/images/testing/test-views-edit-ownership-pass.png)         |
+| test_search_functionality           | Search returns relevant recipes                   | Pass   | ![](documentation/images/testing/test-views-search-pass.png)                 |
+| test_category_filter                | Category filter returns relevant recipes          | Pass   | ![](documentation/images/testing/test-views-category-filter-pass.png)        |
+
+![All tests passing](documentation/images/testing/all-tests-pass.png)
 
 ### Manual Testing
 
-Manual testing was carried out throughout the development process.
-Each feature was tested after implementation and a final round of
-testing was completed on the deployed Heroku site.
+Manual testing was carried out throughout the development process. Each feature was tested after implementation and a final round of testing was completed on the deployed Heroku site.
 
 | User Story         | Test                              | Expected Result        | Actual Result             | Pass/Fail | Screenshot                                                     |
 | ------------------ | --------------------------------- | ---------------------- | ------------------------- | --------- | -------------------------------------------------------------- |
@@ -684,61 +553,6 @@ testing was completed on the deployed Heroku site.
 | Edit ownership     | Try to edit another user's recipe | Error message shown    | Error displayed           | Pass      | ![](documentation/images/features/edit-ownership-error.png)    |
 | Custom 404         | Navigate to non-existent URL      | Custom 404 shown       | 404 page shown            | Pass      | ![](documentation/images/features/404-page.png)                |
 | Success messages   | Perform any CRUD action           | Message auto-dismisses | Message dismisses         | Pass      | ![](documentation/images/features/auto-dismiss-message.png)    |
-
-### Testing User Stories
-
-| User Story                      | Expected Result                        | Pass/Fail |
-| ------------------------------- | -------------------------------------- | --------- |
-| Browse all recipes as a visitor | Homepage displays recipe grid          |           |
-| Search recipes by keyword       | Search returns relevant results        |           |
-| Filter recipes by category      | Category filter shows relevant recipes |           |
-| View full recipe detail         | Detail page shows all recipe info      |           |
-| Register for an account         | Registration form creates new user     |           |
-| Log in to account               | Login redirects to homepage            |           |
-| Add a new recipe                | Form creates recipe in database        |           |
-| Edit own recipe                 | Edit form updates recipe               |           |
-| Delete own recipe               | Recipe removed from database           |           |
-| Leave a comment                 | Comment appears on recipe page         |           |
-| Delete own comment              | Comment removed from page              |           |
-| Rate a recipe                   | Rating saved and average updated       |           |
-| View profile page               | Profile shows user's recipes           |           |
-| Log out                         | Session ended, redirected to homepage  |           |
-
-### Automated Testing
-
-#### View Tests
-
-| Test                                | Description                                       | Result | Screenshot                                                                   |
-| ----------------------------------- | ------------------------------------------------- | ------ | ---------------------------------------------------------------------------- |
-| test_home_page_loads                | Homepage loads with correct template              | Pass   | ![](documentation/images/testing/test-views-home-pass.png)                   |
-| test_recipe_detail_loads            | Recipe detail page loads correctly                | Pass   | ![](documentation/images/testing/test-views-recipe-detail-pass.png)          |
-| test_recipe_create_requires_login   | Unauthenticated users redirected from create page | Pass   | ![](documentation/images/testing/test-views-create-login-required-pass.png)  |
-| test_recipe_create_logged_in        | Logged in users can access create page            | Pass   | ![](documentation/images/testing/test-views-create-logged-in-pass.png)       |
-| test_profile_requires_login         | Unauthenticated users redirected from profile     | Pass   | ![](documentation/images/testing/test-views-profile-login-required-pass.png) |
-| test_recipe_edit_requires_ownership | Non-authors cannot edit recipes                   | Pass   | ![](documentation/images/testing/test-views-edit-ownership-pass.png)         |
-| test_search_functionality           | Search returns relevant recipes                   | Pass   | ![](documentation/images/testing/test-views-search-pass.png)                 |
-| test_category_filter                | Category filter returns relevant recipes          | Pass   | ![](documentation/images/testing/test-views-category-filter-pass.png)        |
-
-![All tests passing](documentation/images/testing/all-tests-pass.png)
-
-#### Form Tests
-
-All form tests were run using Django's built-in testing framework.
-
-| Test                          | Description                         | Result | Screenshot                                                                  |
-| ----------------------------- | ----------------------------------- | ------ | --------------------------------------------------------------------------- |
-| test_form_is_valid            | Form valid with all required fields | Pass   | ![](documentation/images/testing/test-forms-pass.png)                       |
-| test_title_is_required        | Form invalid without title          | Pass   | ![](documentation/images/testing/test-forms-title-required-pass.png)        |
-| test_ingredients_is_required  | Form invalid without ingredients    | Pass   | ![](documentation/images/testing/test-forms-ingredients-required-pass.png)  |
-| test_instructions_is_required | Form invalid without instructions   | Pass   | ![](documentation/images/testing/test-forms-instructions-required-pass.png) |
-
-### Validator Testing
-
-| File   | Validator      | Result         |
-| ------ | -------------- | -------------- |
-| HTML   | W3C            | _(add result)_ |
-| CSS    | Jigsaw         | _(add result)_ |
-| Python | CI PEP8 Linter | _(add result)_ |
 
 ### Validator Testing
 
@@ -767,23 +581,21 @@ CSS was validated using the [W3C Jigsaw Validator](https://jigsaw.w3.org/css-val
 | --------- | ---------------- | ------------------------------------------------- |
 | style.css | Pass - No errors | ![](documentation/images/validation/css-pass.png) |
 
-> Note: 10 warnings were shown relating to CSS custom variables
-> (`:root` variables) which the validator cannot statically check.
-> These are not errors and do not affect the validity of the CSS.
+> Note: 10 warnings were shown relating to CSS custom variables which the validator cannot statically check. These are not errors and do not affect the validity of the CSS.
 
 #### Python PEP8 Validation
 
 All Python files were validated using the [CI Python Linter](https://pep8ci.herokuapp.com/).
 
-| File            | Result | Screenshot                                                                |
-| --------------- | ------ | ------------------------------------------------------------------------- |
-| views.py        | Pass   | ![views](documentation/images/validation/pep8-views-pass.png)             |
-| models.py       | Pass   | ![models](documentation/images/validation/pep8-models-pass.png)           |
-| forms.py        | Pass   | ![forms](documentation/images/validation/pep8-forms-pass.png)             |
-| admin.py        | Pass   | ![admin](documentation/images/validation/pep8-admin-pass.png)             |
-| recipes/urls.py | Pass   | ![urls](documentation/images/validation/pep8-urls-pass.png)               |
-| settings.py     | Pass   | ![settings](documentation/images/validation/pep8-settings-pass.png)       |
-| forkit/urls.py  | Pass   | ![forkit urls](documentation/images/validation/pep8-forkit-urls-pass.png) |
+| File            | Result | Screenshot                                                     |
+| --------------- | ------ | -------------------------------------------------------------- |
+| views.py        | Pass   | ![](documentation/images/validation/pep8-views-pass.png)       |
+| models.py       | Pass   | ![](documentation/images/validation/pep8-models-pass.png)      |
+| forms.py        | Pass   | ![](documentation/images/validation/pep8-forms-pass.png)       |
+| admin.py        | Pass   | ![](documentation/images/validation/pep8-admin-pass.png)       |
+| recipes/urls.py | Pass   | ![](documentation/images/validation/pep8-urls-pass.png)        |
+| settings.py     | Pass   | ![](documentation/images/validation/pep8-settings-pass.png)    |
+| forkit/urls.py  | Pass   | ![](documentation/images/validation/pep8-forkit-urls-pass.png) |
 
 #### Lighthouse
 
@@ -802,12 +614,12 @@ Tested on the following devices and browsers:
 
 | Device  | Browser | Result |
 | ------- | ------- | ------ |
-| Desktop | Chrome  |        |
-| Desktop | Firefox |        |
-| Desktop | Safari  |        |
-| Tablet  | Chrome  |        |
-| Mobile  | Chrome  |        |
-| Mobile  | Safari  |        |
+| Desktop | Chrome  | Pass   |
+| Desktop | Firefox | Pass   |
+| Desktop | Safari  | Pass   |
+| Tablet  | Chrome  | Pass   |
+| Mobile  | Chrome  | Pass   |
+| Mobile  | Safari  | Pass   |
 
 ---
 
@@ -817,122 +629,143 @@ Tested on the following devices and browsers:
 
 - **Issue:** `ImageField` requires Pillow but it was not in the initial dependencies, causing a `SystemCheckError` on `makemigrations`
 - **Fix:** Ran `pip install Pillow` and updated `requirements.txt`
-- **Screenshot:** ![Bug 1 screenshot](documentation/images/bugs/pillow_issue.png)
+- **Screenshot:** ![Bug 1](documentation/images/bugs/pillow_issue.png)
 
 ### Bug 2 — NoReverseMatch for recipe_create and profile URLs
 
-- **Issue:** `base.html` referenced `{% url 'recipe_create' %}` and
-  `{% url 'profile' %}` before these URL patterns had been created,
-  causing a `NoReverseMatch` error on every page load
-- **Fix:** Replaced unbuilt URLs with `#` placeholders in `base.html`
-  until the views and URLs are created incrementally
-- **Screenshot:** ![Bug 2 screenshot](documentation/images/bugs/bug-02-noreversematch.png)
+- **Issue:** `base.html` referenced `{% url 'recipe_create' %}` and `{% url 'profile' %}` before these URL patterns had been created, causing a `NoReverseMatch` error on every page load
+- **Fix:** Replaced unbuilt URLs with `#` placeholders in `base.html` until the views and URLs were created incrementally
+- **Screenshot:** ![Bug 2](documentation/images/bugs/bug-02-noreversematch.png)
 
 ### Bug 3 — URL ordering caused 404 on recipe create page
 
-- **Issue:** `recipe/create/` was being matched by `recipe/<slug:slug>/`
-  pattern because the slug URL was defined first in `urls.py`. Django
-  treated "create" as a slug and threw a 404.
-- **Fix:** Moved `recipe/create/` above `recipe/<slug:slug>/` in
-  `urls.py` so specific paths are matched before dynamic ones.
-- **Screenshot:** ![Bug 4](documentation/images/bugs/bug-03-url-ordering.png)
+- **Issue:** `recipe/create/` was being matched by `recipe/<slug:slug>/` pattern because the slug URL was defined first. Django treated "create" as a slug and threw a 404
+- **Fix:** Moved `recipe/create/` above `recipe/<slug:slug>/` in `urls.py`
+- **Screenshot:** ![Bug 3](documentation/images/bugs/bug-03-url-ordering.png)
 
 ### Bug 4 — Error messages not displaying correct colour
 
-- **Issue:** Django's `messages.error` uses the tag `error` but
-  Bootstrap uses `danger` for red alerts, so error messages were
-  not styled correctly
-- **Fix:** Added `MESSAGE_TAGS` to `settings.py` to map Django
-  message levels to Bootstrap CSS classes
-  - **Screenshot:** ![Bug 5](documentation/images/bugs/bug-04-message-tags.png)
+- **Issue:** Django's `messages.error` uses the tag `error` but Bootstrap uses `danger` for red alerts
+- **Fix:** Added `MESSAGE_TAGS` to `settings.py` to map Django message levels to Bootstrap CSS classes
+- **Screenshot:** ![Bug 4](documentation/images/bugs/bug-04-message-tags.png)
 
 ### Bug 5 — Footer not sticking to bottom of page
 
-- **Issue:** Footer was floating in the middle of the page when
-  there was not enough content to fill the viewport height
-- **Fix:** Added Bootstrap flex utilities to `base.html` —
-  `d-flex flex-column min-vh-100` on the body, `flex-grow-1` on
-  main and `mt-auto` on the footer to push it to the bottom
-- **Screenshot:** ![Bug 6](documentation/images/bugs/bug-05-footer.png)
+- **Issue:** Footer was floating in the middle of the page when there was not enough content to fill the viewport height
+- **Fix:** Added Bootstrap flex utilities — `d-flex flex-column min-vh-100` on body, `flex-grow-1` on main and `mt-auto` on footer
+- **Screenshot:** ![Bug 5](documentation/images/bugs/bug-05-footer.png)
 
 ### Bug 6 — Comment submission not working
 
-- **Issue:** Comment submission code was missing from the
-  `recipe_detail` view, so comments were not being saved to
-  the database
+- **Issue:** Comment submission code was missing from the `recipe_detail` view
 - **Fix:** Added POST request handling to `recipe_detail` view
-  to create comments when the form is submitted
 - **Screenshot:** ![Bug 6](documentation/images/bugs/bug-06-comments-not-submitting.png)
 
-### Bug 7 — Custom 404 page not displaying
+### Bug 7 — Custom 404 page not displaying locally
 
-- **Issue:** Custom 404 page was not displaying because the
-  `404.html` template had not been created and `DEBUG` was set
-  to `True` locally which overrides custom error pages
-- **Fix:** Created `templates/404.html` template and set
-  `DEBUG=False` to test. Custom 404 pages only show when
-  `DEBUG=False`
+- **Issue:** Custom 404 page was not displaying because `DEBUG=True` locally overrides custom error pages
+- **Fix:** Custom 404 pages only show when `DEBUG=False` — confirmed working on Heroku
 - **Screenshot:** ![Bug 7](documentation/images/bugs/bug-07-404-page.png)
 
 ### Bug 8 — Static files not loading on Heroku
 
-- **Issue:** CSS and Bootstrap styles not loading on Heroku because
-  `staticfiles/` was in `.gitignore` and collectstatic had never
-  been run, so Heroku had no static files to serve
-- **Fix:** Ran `python manage.py collectstatic --noinput` locally,
-  removed `staticfiles/` from `.gitignore` temporarily to push the
-  files to Heroku, then added a `release` command to `Procfile` so
-  collectstatic runs automatically on every future deploy
+- **Issue:** CSS and Bootstrap styles not loading on Heroku because `staticfiles/` was in `.gitignore` and collectstatic had never been run
+- **Fix:** Added a `release` command to `Procfile` so collectstatic runs automatically on every deploy
 - **Screenshot:** ![Bug 8](documentation/images/bugs/bug-08-static-files.png)
+
+### Bug 9 — Cloudinary images not uploading to Heroku
+
+- **Issue:** Images not being sent to Cloudinary because `DEFAULT_FILE_STORAGE` is deprecated in Django 6
+- **Fix:** Replaced with the new Django `STORAGES` dictionary setting
+- **Before:** ![Bug 9 before](documentation/images/bugs/bug-09-cloudinary-before.png)
+- **After:** ![Bug 9 after](documentation/images/bugs/bug-09-cloudinary-after.png)
+
+### Bug 10 — collectstatic copying 0 files
+
+- **Issue:** `cloudinary_storage` was listed before `django.contrib.staticfiles` in `INSTALLED_APPS`, causing it to intercept the static files collection process
+- **Fix:** Moved `cloudinary_storage` to after `django.contrib.staticfiles`
+- **Screenshot:** ![Bug 10](documentation/images/bugs/bug-10-collectstatic.png)
+
+### Bug 11 — PEP8 line too long in views.py
+
+- **Issue:** Line 53 in `views.py` was 81 characters, exceeding PEP8 limit of 79
+- **Fix:** Split `Comment.objects.create()` across multiple lines and added `pyproject.toml` to configure Black
+- **Before:** ![PEP8 error](documentation/images/validation/pep8-views-error.png)
+- **After:** ![PEP8 pass](documentation/images/validation/pep8-views-pass.png)
+
+### Bug 12 — PEP8 errors in models.py
+
+- **Issue:** 5 lines in `models.py` exceeded 79 characters due to long ForeignKey definitions
+- **Fix:** Split the long lines across multiple lines
+- **Before:** ![PEP8 models error](documentation/images/validation/pep8-models-error.png)
+- **After:** ![PEP8 models pass](documentation/images/validation/pep8-models-pass.png)
+
+### Bug 13 — PEP8 errors in forms.py
+
+- **Issue:** 3 lines in `forms.py` exceeded 79 characters due to long placeholder text strings
+- **Fix:** Split long strings using Python's implicit string concatenation
+- **Before:** ![PEP8 forms error](documentation/images/validation/pep8-forms-error.png)
+- **After:** ![PEP8 forms pass](documentation/images/validation/pep8-forms-pass.png)
+
+### Bug 14 — PEP8 errors in urls.py
+
+- **Issue:** Lines 9 and 11 in `recipes/urls.py` exceeded 79 characters
+- **Fix:** Split the long path definitions across multiple lines
+- **Before:** ![PEP8 urls error](documentation/images/validation/pep8-urls-error.png)
+- **After:** ![PEP8 urls pass](documentation/images/validation/pep8-urls-pass.png)
+
+### Bug 15 — PEP8 errors in settings.py
+
+- **Issue:** Multiple lines exceeded 79 characters and had trailing whitespace in `AUTH_PASSWORD_VALIDATORS`
+- **Fix:** Split validator class names across multiple lines and used VS Code "Trim Trailing Whitespace"
+- **Before:** ![Settings error](documentation/images/validation/pep8-settings-error-long.png)
+- **After:** ![Settings pass](documentation/images/validation/pep8-settings-pass.png)
 
 ### Bug 16 — HTML heading hierarchy error on homepage
 
-- **Issue:** `h5` heading in recipe cards was skipping heading
-  levels, jumping from `h1` to `h5`
-- **Fix:** Changed `h5` to `h2` with Bootstrap `h5` class to
-  maintain visual styling while fixing semantic hierarchy
+- **Issue:** `h5` heading in recipe cards was skipping from `h1` to `h5`
+- **Fix:** Changed `h5` to `h2` with Bootstrap `h5` class to maintain visual styling
 - **Before:** ![HTML error](documentation/images/validation/html-homepage-error.png)
 - **After:** ![HTML pass](documentation/images/validation/html-homepage-pass.png)
 
 ### Bug 17 — HTML heading hierarchy errors in recipe detail page
 
-- **Issue:** Multiple heading hierarchy errors — `h3` headings
-  skipping from `h1`, and `h5` headings skipping levels
-- **Fix:** Changed all headings to correct semantic levels using
-  Bootstrap classes to maintain visual appearance
-- **Attempt 1 (2 errors):** ![Error 1](documentation/images/validation/html-recipe-detail-error1.png)
-- **Attempt 2 (1 error):** ![Error 2](documentation/images/validation/html-recipe-detail-error2.png)
-- **Final pass:** ![Pass](documentation/images/validation/html-recipe-detail-pass.png)
+- **Issue:** Multiple heading hierarchy errors throughout the recipe detail template
+- **Fix:** Changed all headings to correct semantic levels using Bootstrap classes to maintain appearance
+- **Before:** ![Error](documentation/images/validation/html-recipe-detail-error1.png)
+- **After:** ![Pass](documentation/images/validation/html-recipe-detail-pass.png)
 
-### Bug 18 — Missing h1 heading on login page
+### Bug 18 — Missing h1 heading on login, signup and logout pages
 
-- **Issue:** The login page had no `h1` heading — "Welcome back"
-  was an `h2` which triggered a warning in the HTML validator
-- **Fix:** Changed `h2` to `h1` with Bootstrap `h2` class to
-  maintain visual appearance while fixing the semantic structure
+- **Issue:** The login, signup and logout pages had no `h1` heading, triggering HTML validator warnings
+- **Fix:** Changed `h2` to `h1` with Bootstrap `h2` class on all three pages
 - **Before:** ![Login warning](documentation/images/validation/html-login-warning.png)
 - **After:** ![Login pass](documentation/images/validation/html-login-pass.png)
 
 ### Bug 19 — HTML heading hierarchy errors on profile pages
 
-- **Issue:** Profile pages had missing `h1` headings and incorrect
-  heading hierarchy — username was `h2` with no `h1`, and section
-  headings were not in the correct order
-- **Fix:** Changed username heading to `h1` with Bootstrap `h2`
-  class, updated "My Recipes" to `h2`, and recipe card titles to
-  `h3` to maintain correct semantic hierarchy
+- **Issue:** Profile pages had missing `h1` headings and incorrect heading hierarchy
+- **Fix:** Changed username heading to `h1`, "My Recipes" to `h2`, and recipe card titles to `h3`
 - **Before:** ![Profile warning](documentation/images/validation/html-profile-warning.png)
 - **After:** ![Profile pass](documentation/images/validation/html-profile-pass.png)
 
 ### Bug 20 — Automated test failing due to required category field
 
-- **Issue:** The `test_form_is_valid` test was failing because
-  `category` is a required ForeignKey field but no category
-  object was being created in the test data
-- **Fix:** Added a `setUp` method to create a test `Category`
-  object and passed its ID to the form data
+- **Issue:** `test_form_is_valid` was failing because `category` is a required ForeignKey but no category was being created in test data
+- **Fix:** Added a `setUp` method to create a test `Category` object and passed its ID to the form data
 - **Before:** ![Test fail](documentation/images/testing/test-forms-fail.png)
 - **After:** ![Test pass](documentation/images/testing/test-forms-pass.png)
+
+---
+
+## Future Implementations
+
+- Favorites/bookmarking system for saving recipes
+- Recipe print functionality
+- Pagination for the recipe grid
+- Social sharing buttons
+- Reply to comments functionality
+- Password reset via email
 
 ---
 
@@ -940,7 +773,7 @@ Tested on the following devices and browsers:
 
 ### Content
 
-- Recipe content and sample data written by the developer
+- Recipe content and sample data written by myself.
 
 ### Media
 
@@ -948,14 +781,18 @@ Tested on the following devices and browsers:
 
 ### Code
 
-_(Add any external code sources here with attribution)_
+- Django documentation — [docs.djangoproject.com](https://docs.djangoproject.com/)
+- Bootstrap 5 documentation — [getbootstrap.com](https://getbootstrap.com/)
+- Django Allauth documentation — [django-allauth.readthedocs.io](https://django-allauth.readthedocs.io/)
+- Code Institute Django walkthrough (CodeStar Blog) — used as reference for project structure and configuration patterns
 
 ### Tools
 
-- [Canva](https://www.canva.com/) — _(if used)_
 - [Favicon.io](https://favicon.io/) — favicon generation
 - [Amiresponsive](https://ui.dev/amiresponsive) — responsiveness screenshots
+- [Neon](https://neon.tech/) — PostgreSQL database hosting
+- [Cloudinary](https://cloudinary.com/) — media file storage
 
 ### Acknowledgements
 
-_(Add acknowledgements here)_
+- Code Institute for the course content and support
