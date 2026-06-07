@@ -660,7 +660,30 @@ _(This section will be completed after all features are built)_
 
 ### Manual Testing
 
-_(Add manual testing table here)_
+Manual testing was carried out throughout the development process.
+Each feature was tested after implementation and a final round of
+testing was completed on the deployed Heroku site.
+
+| User Story         | Test                              | Expected Result        | Actual Result             | Pass/Fail | Screenshot                                                     |
+| ------------------ | --------------------------------- | ---------------------- | ------------------------- | --------- | -------------------------------------------------------------- |
+| Browse all recipes | Navigate to homepage              | Recipe grid displays   | Recipes shown             | Pass      | ![](documentation/images/features/homepage-early.png)          |
+| Search recipes     | Type "Carbonara" in search        | Matching recipes shown | Carbonara displayed       | Pass      | ![](documentation/images/features/search-results.png)          |
+| Filter by category | Click "Italian"                   | Italian recipes shown  | Italian recipes displayed | Pass      | ![](documentation/images/features/category-filter.png)         |
+| View recipe detail | Click View Recipe                 | Full recipe page loads | Detail page loads         | Pass      | ![](documentation/images/features/recipe-detail-early.png)     |
+| Register account   | Fill register form                | Account created        | Account created           | Pass      | ![](documentation/images/features/register-page.png)           |
+| Log in             | Enter credentials                 | Redirected to homepage | Login successful          | Pass      | ![](documentation/images/features/login-page.png)              |
+| Add recipe         | Fill add recipe form              | Recipe created         | Recipe created            | Pass      | ![](documentation/images/features/add-recipe-success.png)      |
+| Edit own recipe    | Click Edit on own recipe          | Changes saved          | Recipe updated            | Pass      | ![](documentation/images/features/edit-recipe-success.png)     |
+| Delete own recipe  | Click Delete and confirm          | Recipe removed         | Recipe deleted            | Pass      | ![](documentation/images/features/delete-success.png)          |
+| Leave a comment    | Type and submit comment           | Comment appears        | Comment posted            | Pass      | ![](documentation/images/features/comment-added.png)           |
+| Delete own comment | Click Delete on comment           | Comment removed        | Comment deleted           | Pass      | ![](documentation/images/features/comment-deleted.png)         |
+| Rate a recipe      | Select stars and submit           | Rating saved           | Rating saved              | Pass      | ![](documentation/images/features/rating-success.png)          |
+| View profile       | Click Profile in navbar           | Profile page loads     | Profile loads             | Pass      | ![](documentation/images/features/profile-page.png)            |
+| Log out            | Click Logout and confirm          | Session ended          | Logged out                | Pass      | ![](documentation/images/features/logout-page.png)             |
+| Login required     | Access /recipe/create/ logged out | Redirected to login    | Redirected                | Pass      | ![](documentation/images/features/login-required-redirect.png) |
+| Edit ownership     | Try to edit another user's recipe | Error message shown    | Error displayed           | Pass      | ![](documentation/images/features/edit-ownership-error.png)    |
+| Custom 404         | Navigate to non-existent URL      | Custom 404 shown       | 404 page shown            | Pass      | ![](documentation/images/features/404-page.png)                |
+| Success messages   | Perform any CRUD action           | Message auto-dismisses | Message dismisses         | Pass      | ![](documentation/images/features/auto-dismiss-message.png)    |
 
 ### Testing User Stories
 
@@ -682,6 +705,21 @@ _(Add manual testing table here)_
 | Log out                         | Session ended, redirected to homepage  |           |
 
 ### Automated Testing
+
+#### View Tests
+
+| Test                                | Description                                       | Result | Screenshot                                                                   |
+| ----------------------------------- | ------------------------------------------------- | ------ | ---------------------------------------------------------------------------- |
+| test_home_page_loads                | Homepage loads with correct template              | Pass   | ![](documentation/images/testing/test-views-home-pass.png)                   |
+| test_recipe_detail_loads            | Recipe detail page loads correctly                | Pass   | ![](documentation/images/testing/test-views-recipe-detail-pass.png)          |
+| test_recipe_create_requires_login   | Unauthenticated users redirected from create page | Pass   | ![](documentation/images/testing/test-views-create-login-required-pass.png)  |
+| test_recipe_create_logged_in        | Logged in users can access create page            | Pass   | ![](documentation/images/testing/test-views-create-logged-in-pass.png)       |
+| test_profile_requires_login         | Unauthenticated users redirected from profile     | Pass   | ![](documentation/images/testing/test-views-profile-login-required-pass.png) |
+| test_recipe_edit_requires_ownership | Non-authors cannot edit recipes                   | Pass   | ![](documentation/images/testing/test-views-edit-ownership-pass.png)         |
+| test_search_functionality           | Search returns relevant recipes                   | Pass   | ![](documentation/images/testing/test-views-search-pass.png)                 |
+| test_category_filter                | Category filter returns relevant recipes          | Pass   | ![](documentation/images/testing/test-views-category-filter-pass.png)        |
+
+![All tests passing](documentation/images/testing/all-tests-pass.png)
 
 #### Form Tests
 
