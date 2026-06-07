@@ -69,29 +69,29 @@
             </div>
         </div>
 
-        <!-- Ingredients -->
-        <div class="mb-4">
-            <h3>Ingredients</h3>
-            <ul class="list-group list-group-flush">
-                {% for ingredient in recipe.ingredients.splitlines %}
-                {% if ingredient %}
-                <li class="list-group-item ps-0">{{ ingredient }}</li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
+      <!-- Ingredients -->
+<div class="mb-4">
+    <h3>Ingredients</h3>
+    <ul class="ingredients-list">
+        {% for ingredient in recipe.ingredients.splitlines %}
+        {% if ingredient %}
+        <li>{{ ingredient }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
 
-        <!-- Instructions -->
-        <div class="mb-4">
-            <h3>Instructions</h3>
-            <ol class="list-group list-group-flush list-group-numbered">
-                {% for step in recipe.instructions.splitlines %}
-                {% if step %}
-                <li class="list-group-item ps-0">{{ step }}</li>
-                {% endif %}
-                {% endfor %}
-            </ol>
-        </div>
+<!-- Instructions -->
+<div class="mb-4">
+    <h3>Instructions</h3>
+    <ol class="instructions-list">
+        {% for step in recipe.instructions.splitlines %}
+        {% if step %}
+        <li>{{ step }}</li>
+        {% endif %}
+        {% endfor %}
+    </ol>
+</div>
 
         <!-- Rating -->
         {% if user.is_authenticated and user != recipe.author %}
