@@ -3,7 +3,7 @@
 {% block title %}Page Not Found - ForkIt{% endblock %}
 
 {% block content %}
-
+<!-- Custom 404 error page - shown when a user navigates to a non-existent URL -->
 <div class="row justify-content-center">
     <div class="col-md-6 text-center py-5">
         <h1 class="display-1 fw-bold" style="color: var(--terracotta);">404</h1>
@@ -12,6 +12,7 @@
             Oops! The page you're looking for doesn't exist. 
             It may have been moved or deleted.
         </p>
+        <!-- Link back to homepage so user doesn't need browser back button -->
         <a href="{% url 'home' %}" class="btn btn-primary btn-lg">
             Back to Homepage
         </a>

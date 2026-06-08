@@ -11,32 +11,34 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 # fmt: off
+# Standard library imports
 from pathlib import Path
 import os
 import sys
 
+# Third-party imports
 import dj_database_url
 from django.contrib.messages import constants as messages
 
+# Load environment variables from env.py if it exists (local development)
 if os.path.isfile("env.py"):
     import env
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-
-# SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG is read from environment variables
+# On Heroku DEBUG is not set so defaults to False (production safe)
+# Locally env.py sets DEBUG=True to enable development mode
 DEBUG = os.environ.get("DEBUG", "False") == "True"
-ALLOWED_HOSTS = ["forkit-app-397f94f54229.herokuapp.com", "127.0.0.1"]
-# Application definition
 
+# Allowed hosts for development and production
+ALLOWED_HOSTS = ["forkit-app-397f94f54229.herokuapp.com", "127.0.0.1"]
+
+# Installed applications including Django core, third-party and local apps
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -54,16 +56,26 @@ INSTALLED_APPS = [
     "cloudinary",
     "recipes",
 ]
+
+# Django allauth configuration
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+# Crispy forms configuration using Bootstrap 5
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# Disable email verification for allauth
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
-
+# Cloudinary configuration for media file storage
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 MEDIA_URL = "/media/"
+
+# Storage configuration:
+# - Media files stored on Cloudinary
+# - Static files served by WhiteNoise
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
@@ -76,6 +88,7 @@ STORAGES = {
 # Required for older cloudinary_storage compatibility
 STATICFILES_STORAGE = "whitenoise.storage.StaticFilesStorage"
 
+# Middleware stack including WhiteNoise for static files
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -90,6 +103,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "forkit.urls"
 
+# Template configuration with custom templates directory
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -107,19 +121,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "forkit.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# Database configuration using dj_database_url
+# SQLite used for testing to avoid hitting the production database
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 if 'test' in sys.argv:
     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
     DATABASES['default']['NAME'] = ':memory:'
     DATABASES['default'].pop('OPTIONS', None)
 
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
+# Password validation rules
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": (
@@ -147,31 +157,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
+# Internationalisation settings
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
+# Static files configuration
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Map Django message levels to Bootstrap alert classes
 MESSAGE_TAGS = {
     messages.DEBUG: "debug",
     messages.INFO: "info",
@@ -179,5 +179,7 @@ MESSAGE_TAGS = {
     messages.WARNING: "warning",
     messages.ERROR: "danger",
 }
+
+# Allow iframes for all origins
 X_FRAME_OPTIONS = 'ALLOWALL'
 # fmt: on

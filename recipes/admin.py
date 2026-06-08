@@ -1,6 +1,4 @@
-from django.contrib import admin
-
-# Register your models here.
+# Admin configuration for ForkIt models
 from django.contrib import admin
 from .models import Category, Recipe, Comment, Rating
 
@@ -9,6 +7,7 @@ from .models import Category, Recipe, Comment, Rating
 class CategoryAdmin(admin.ModelAdmin):
     """Admin configuration for Category model."""
 
+    # Auto-populate slug field from name
     prepopulated_fields = {"slug": ("name",)}
     list_display = ("name", "slug")
 
@@ -17,6 +16,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class RecipeAdmin(admin.ModelAdmin):
     """Admin configuration for Recipe model."""
 
+    # Auto-populate slug field from title
     prepopulated_fields = {"slug": ("title",)}
     list_display = ("title", "author", "category", "created_at")
     list_filter = ("category",)

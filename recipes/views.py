@@ -1,11 +1,12 @@
+# Views for the ForkIt recipe sharing application
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Avg, Q
-from .models import Recipe, Category, Comment, Rating
+from django.utils.text import slugify
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .models import Recipe, Category, Comment, Rating
 from .forms import RecipeForm
-
-# Create your views here.
 
 
 def home(request):
@@ -73,10 +74,10 @@ def recipe_create(request):
     if request.method == "POST":
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
-            from django.utils.text import slugify
-
             recipe = form.save(commit=False)
+            # Set the author to the currently logged in user
             recipe.author = request.user
+            # Generate a unique slug from the recipe title
             recipe.slug = slugify(recipe.title)
             if Recipe.objects.filter(slug=recipe.slug).exists():
                 recipe.slug = f"{recipe.slug}-{request.user.id}"
@@ -98,7 +99,7 @@ def recipe_edit(request, slug):
     """
     recipe = get_object_or_404(Recipe, slug=slug)
 
-    # Check ownership
+    # Check ownership - only the author can edit
     if recipe.author != request.user:
         messages.error(request, "You can only edit your own recipes!")
         return redirect("recipe_detail", slug=slug)
@@ -127,7 +128,7 @@ def recipe_delete(request, slug):
     """
     recipe = get_object_or_404(Recipe, slug=slug)
 
-    # Check ownership
+    # Check ownership - only the author can delete
     if recipe.author != request.user:
         messages.error(request, "You can only delete your own recipes!")
         return redirect("recipe_detail", slug=slug)
@@ -149,7 +150,7 @@ def comment_delete(request, comment_id):
     """
     comment = get_object_or_404(Comment, id=comment_id)
 
-    # Check ownership
+    # Check ownership - only the comment author can delete
     if comment.author != request.user:
         messages.error(request, "You can only delete your own comments!")
         return redirect("recipe_detail", slug=comment.recipe.slug)
@@ -176,6 +177,7 @@ def rate_recipe(request, slug):
     if request.method == "POST":
         score = request.POST.get("score")
         if score:
+            # Update existing rating or create a new one
             Rating.objects.update_or_create(
                 recipe=recipe, user=request.user, defaults={"score": score}
             )
@@ -208,8 +210,6 @@ def user_profile(request, username):
     Display a public profile page for any user,
     showing all their posted recipes.
     """
-    from django.contrib.auth.models import User
-
     profile_user = get_object_or_404(User, username=username)
     recipes = Recipe.objects.filter(author=profile_user).annotate(
         avg_rating=Avg("ratings__score")

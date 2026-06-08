@@ -18,9 +18,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# Custom 404 handler defined in recipes/views.py
 handler404 = "recipes.views.custom_404"
+
 urlpatterns = [
+    # Django admin panel
     path("admin/", admin.site.urls),
+    # Recipe app URLs
     path("", include("recipes.urls")),
+    # Django allauth authentication URLs (login, logout, register)
     path("accounts/", include("allauth.urls")),
 ]

@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}ForkIt{% endblock %}</title>
-    <!-- Bootstrap 5 -->
+
+    <!-- Third party: Bootstrap 5 CSS - https://getbootstrap.com/ -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+
+    <!-- Third party: Font Awesome 6 icons - https://fontawesome.com/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- Navbar -->
+    <!-- Navbar - collapses to hamburger menu on mobile -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="{% url 'home' %}">
@@ -28,6 +31,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'home' %}">Browse</a>
                     </li>
+                    <!-- Show authenticated nav links only to logged in users -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'recipe_create' %}">Add Recipe</a>
@@ -39,6 +43,7 @@
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
+                    <!-- Show login/register links to unauthenticated users -->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                     </li>
@@ -51,7 +56,7 @@
         </div>
     </nav>
 
-    <!-- Messages -->
+    <!-- Django messages framework - auto dismissed by script.js -->
     {% if messages %}
     <div class="container mt-3">
         {% for message in messages %}
@@ -63,22 +68,23 @@
     </div>
     {% endif %}
 
-    <!-- Main Content -->
+    <!-- Main content block - extended by child templates -->
     <main class="container my-4 flex-grow-1">
         {% block content %}
         {% endblock %}
     </main>
 
-    <!-- Footer -->
+    <!-- Footer - sticky to bottom via flex-column min-vh-100 on body -->
     <footer class="bg-white border-top mt-auto py-4">
         <div class="container text-center">
             <p class="text-muted mb-0">© 2026 ForkIt — Share your love of cooking</p>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Third party: Bootstrap 5 JS bundle - https://getbootstrap.com/ -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="{% static 'js/script.js' %}"></script>     
+
+    <!-- Custom JS - auto dismisses alert messages -->
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

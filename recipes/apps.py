@@ -1,5 +1,9 @@
+# App configuration for the recipes application
 from django.apps import AppConfig
 
 
 class RecipesConfig(AppConfig):
-    name = 'recipes'
+    """Configuration class for the recipes app."""
+
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "recipes"

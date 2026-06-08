@@ -1,4 +1,11 @@
-/* Custom CSS Variables */
+/* =========================================
+   ForkIt Custom Styles
+   Author: Fahim
+   Description: Custom styles for the ForkIt
+   recipe sharing application
+   ========================================= */
+
+/* ---- CSS Custom Properties (Variables) ---- */
 :root {
   --terracotta: #c46438;
   --olive-green: #58b783;
@@ -6,19 +13,19 @@
   --dark-brown: #2c1810;
 }
 
-/* Global Styles */
+/* ---- Global Styles ---- */
 body {
   background-color: var(--cream);
   color: var(--dark-brown);
 }
 
-/* Navbar */
+/* ---- Navbar ---- */
 .navbar-brand {
   color: var(--terracotta) !important;
   font-size: 1.5rem;
 }
 
-/* Buttons */
+/* ---- Buttons ---- */
 .btn-primary {
   background-color: var(--terracotta);
   border-color: var(--terracotta);
@@ -29,7 +36,7 @@ body {
   border-color: #a8532e;
 }
 
-/* Recipe Cards */
+/* ---- Recipe Cards ---- */
 .recipe-card {
   border: none;
   border-radius: 12px;
@@ -47,7 +54,7 @@ body {
   object-fit: cover;
 }
 
-/* Category Badges */
+/* ---- Category Badges ---- */
 .category-badge {
   background-color: var(--olive-green);
   color: white;
@@ -56,12 +63,12 @@ body {
   font-size: 0.75rem;
 }
 
-/* Star Rating */
+/* ---- Star Rating ---- */
 .stars {
   color: #f4a623;
 }
 
-/* Hero Section */
+/* ---- Hero Section ---- */
 .hero-section {
   background-color: #fdf5ee;
   padding: 60px 0;
@@ -76,7 +83,8 @@ body {
 .hero-section h1 span {
   color: var(--terracotta);
 }
-/* Ingredients list */
+
+/* ---- Ingredients List ---- */
 .ingredients-list {
   list-style: none;
   padding: 0;
@@ -92,6 +100,7 @@ body {
   font-size: 0.95rem;
 }
 
+/* Terracotta bullet point before each ingredient */
 .ingredients-list li::before {
   content: "";
   min-width: 10px;
@@ -100,7 +109,7 @@ body {
   border-radius: 50%;
 }
 
-/* Instructions list */
+/* ---- Instructions List ---- */
 .instructions-list {
   list-style: none;
   padding: 0;
@@ -117,6 +126,7 @@ body {
   line-height: 1.6;
 }
 
+/* Numbered circle before each instruction step */
 .instructions-list li::before {
   content: counter(step-counter);
   position: absolute;

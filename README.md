@@ -128,7 +128,9 @@ Wireframes were created using [Figma](https://www.figma.com) before development 
 
 The Entity Relationship Diagram (ERD) was created using [Canva](https://www.canva.com) to illustrate the database structure and relationships between models.
 
-![ERD](documentation/images/erd.png)The application is built around five main entities:
+![ERD](documentation/images/erd.png)
+
+The application is built around five main entities:
 
 - **User** — Django's built-in User model. A user can create many recipes, comments and ratings.
 - **Category** — Groups recipes by cuisine or type (e.g. Italian, Vegan, Desserts).
@@ -291,7 +293,7 @@ Custom authentication templates built with Django Allauth and Crispy Forms.
 
 ![Success Message](documentation/images/features/auto-dismiss-message.png)
 
-Django messages framework used throughout for feedback on all user actions. Messages automatically disappear after 3 seconds via a custom JavaScript function in `static/js/main.js`.
+Django messages framework used throughout for feedback on all user actions. Messages automatically disappear after 3 seconds via a custom JavaScript function in `static/js/script.js`.
 
 ### Custom 404 Page
 
@@ -589,9 +591,9 @@ All Python files were validated using the [CI Python Linter](https://pep8ci.hero
 
 #### JavaScript
 
-| File    | Result                                | Screenshot                                                  |
-| ------- | ------------------------------------- | ----------------------------------------------------------- |
-| main.js | Pass - 1 minor ES6 warning, no errors | ![](documentation/images/validation/js-validation-pass.png) |
+| File      | Result                                | Screenshot                                                  |
+| --------- | ------------------------------------- | ----------------------------------------------------------- |
+| script.js | Pass - 1 minor ES6 warning, no errors | ![](documentation/images/validation/js-validation-pass.png) |
 
 #### Lighthouse
 
@@ -813,6 +815,7 @@ Tested across Chrome, Firefox (Mozilla) and Safari on desktop, tablet and mobile
 - [Django Allauth Documentation](https://django-allauth.readthedocs.io/) — referenced for authentication configuration
 - [Cloudinary Documentation](https://cloudinary.com/documentation) — referenced for media file storage configuration
 - [WhiteNoise Documentation](http://whitenoise.evans.io/en/stable/) — referenced for static file serving on Heroku
+- [Font Awesome 6](https://fontawesome.com/) — used for icons throughout the site (clock, user, star icons)
 - [Code Institute CodeStar Blog Project](https://github.com/Code-Institute-Solutions/blog) — used as reference for project structure, settings configuration and deployment steps
 - [Stack Overflow](https://stackoverflow.com/) — referenced for specific bug fixes and Django queryset questions throughout development
 
