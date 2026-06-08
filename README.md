@@ -6,7 +6,7 @@
 
 [Click here to view the deployed site.](https://forkit-app-397f94f54229.herokuapp.com/)
 
----
+## [View the GitHub Repository](https://github.com/fahim2023/forkit)
 
 ## Table of Contents
 
