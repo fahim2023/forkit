@@ -587,6 +587,12 @@ All Python files were validated using the [CI Python Linter](https://pep8ci.hero
 | settings.py     | Pass   | ![](documentation/images/validation/pep8-settings-pass.png)    |
 | forkit/urls.py  | Pass   | ![](documentation/images/validation/pep8-forkit-urls-pass.png) |
 
+#### JavaScript
+
+| File    | Result                                | Screenshot                                                  |
+| ------- | ------------------------------------- | ----------------------------------------------------------- |
+| main.js | Pass - 1 minor ES6 warning, no errors | ![](documentation/images/validation/js-validation-pass.png) |
+
 #### Lighthouse
 
 | Page          | Device  | Performance | Accessibility | Best Practices | SEO | Screenshot                                                                |
@@ -772,6 +778,7 @@ Tested across Chrome, Firefox (Mozilla) and Safari on desktop, tablet and mobile
 
 ## Future Implementations
 
+- Improve the overall UI design with a more polished visual style, including custom colour scheme, improved typography and enhanced recipe card design
 - Favorites/bookmarking system for saving recipes
 - Recipe print functionality
 - Pagination for the recipe grid
