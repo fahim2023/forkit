@@ -784,21 +784,34 @@ Tested across Chrome, Firefox (Mozilla) and Safari on desktop, tablet and mobile
 ### Media
 
 - Food photography sourced from [Pexels](https://www.pexels.com/) (free to use licence)
+- [Cloudinary](https://cloudinary.com/) — used to host all user-uploaded recipe images
+
+### Design Tools
+
+- [Figma](https://www.figma.com) — used to create wireframes
+- [Canva](https://www.canva.com) — used to create the ERD diagram
+- [Favicon.io](https://favicon.io/) — favicon generation
+- [Amiresponsive](https://ui.dev/amiresponsive) — responsiveness screenshots
 
 ### Code
 
-- Django documentation — [docs.djangoproject.com](https://docs.djangoproject.com/)
-- Bootstrap 5 documentation — [getbootstrap.com](https://getbootstrap.com/)
-- Django Allauth documentation — [django-allauth.readthedocs.io](https://django-allauth.readthedocs.io/)
-- Code Institute Django walkthrough (CodeStar Blog) — used as reference for project structure and configuration patterns
+- [Django Documentation](https://docs.djangoproject.com/) — referenced throughout for views, models, forms and authentication
+- [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.0/) — used for responsive layout, components and utility classes
+- [Django Allauth Documentation](https://django-allauth.readthedocs.io/) — referenced for authentication configuration
+- [Cloudinary Documentation](https://cloudinary.com/documentation) — referenced for media file storage configuration
+- [WhiteNoise Documentation](http://whitenoise.evans.io/en/stable/) — referenced for static file serving on Heroku
+- [Code Institute CodeStar Blog Project](https://github.com/Code-Institute-Solutions/blog) — used as reference for project structure, settings configuration and deployment steps
+- [Stack Overflow](https://stackoverflow.com/) — referenced for specific bug fixes and Django queryset questions throughout development
 
-### Tools
+### Tools & Platforms
 
-- [Favicon.io](https://favicon.io/) — favicon generation
-- [Amiresponsive](https://ui.dev/amiresponsive) — responsiveness screenshots
+- [GitHub](https://github.com/) — version control and code hosting
+- [Heroku](https://www.heroku.com/) — cloud deployment platform
 - [Neon](https://neon.tech/) — PostgreSQL database hosting
-- [Cloudinary](https://cloudinary.com/) — media file storage
+- [CI Python Linter](https://pep8ci.herokuapp.com/) — used to validate Python code
+- [W3C HTML Validator](https://validator.w3.org/) — used to validate HTML
+- [W3C CSS Validator (Jigsaw)](https://jigsaw.w3.org/css-validator/) — used to validate CSS
 
 ### Acknowledgements
 
-- Code Institute for the course content and support
+- Code Institute for the course content, material and support
