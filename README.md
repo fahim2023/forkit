@@ -66,31 +66,37 @@ The site owner benefits by building an engaged food community and growing a valu
 
 #### Site Visitor (not logged in)
 
-- As a site visitor, I want to browse all recipes so that I can find cooking inspiration
-- As a site visitor, I want to search recipes by keyword so that I can find specific dishes quickly
-- As a site visitor, I want to filter recipes by category so that I can browse recipes relevant to my diet or mood
-- As a site visitor, I want to view a full recipe detail page so that I can see ingredients and instructions
-- As a site visitor, I want to register for an account so that I can share my own recipes
+| #   | User Story                                                                                            | Proof                                                      |
+| --- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| 1   | **I want** to browse all recipes **So that** I can find cooking inspiration                           | ![](documentation/images/features/homepage-early.png)      |
+| 2   | **I want** to search recipes by keyword **So that** I can find specific dishes quickly                | ![](documentation/images/features/search-results.png)      |
+| 3   | **I want** to filter recipes by category **So that** I can browse recipes relevant to my diet or mood | ![](documentation/images/features/category-filter.png)     |
+| 4   | **I want** to view a full recipe detail page **So that** I can see ingredients and instructions       | ![](documentation/images/features/recipe-detail-early.png) |
+| 5   | **I want** to register for an account **So that** I can share my own recipes                          | ![](documentation/images/features/register-page.png)       |
 
 #### Registered User
 
-- As a registered user, I want to log in to my account so that I can access my profile and recipes
-- As a registered user, I want to add a new recipe so that I can share it with the community
-- As a registered user, I want to upload an image with my recipe so that it looks appealing to other users
-- As a registered user, I want to edit my own recipes so that I can correct mistakes or update them
-- As a registered user, I want to delete my own recipes so that I can remove content I no longer want to share
-- As a registered user, I want to leave a comment on a recipe so that I can share feedback with the author
-- As a registered user, I want to delete my own comments so that I can remove something I posted
-- As a registered user, I want to rate a recipe out of 5 stars so that I can help others decide what to cook
-- As a registered user, I want to view my profile page so that I can see all my posted recipes in one place
-- As a registered user, I want to log out securely so that my account is protected
+| #   | User Story                                                                                     | Proof                                                      |
+| --- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| 6   | **I want** to log in to my account **So that** I can access my profile and recipes             | ![](documentation/images/features/login-page.png)          |
+| 7   | **I want** to add a new recipe **So that** I can share it with the community                   | ![](documentation/images/features/add-recipe-success.png)  |
+| 8   | **I want** to upload an image with my recipe **So that** it looks appealing to other users     | ![](documentation/images/features/add-recipe-success.png)  |
+| 9   | **I want** to edit my own recipes **So that** I can correct mistakes or update them            | ![](documentation/images/features/edit-recipe-success.png) |
+| 10  | **I want** to delete my own recipes **So that** I can remove content I no longer want to share | ![](documentation/images/features/delete-success.png)      |
+| 11  | **I want** to leave a comment on a recipe **So that** I can share feedback with the author     | ![](documentation/images/features/comment-added.png)       |
+| 12  | **I want** to delete my own comments **So that** I can remove something I posted               | ![](documentation/images/features/comment-deleted.png)     |
+| 13  | **I want** to rate a recipe out of 5 stars **So that** I can help others decide what to cook   | ![](documentation/images/features/rating-success.png)      |
+| 14  | **I want** to view my profile page **So that** I can see all my posted recipes in one place    | ![](documentation/images/features/profile-page.png)        |
+| 15  | **I want** to log out securely **So that** my account is protected                             | ![](documentation/images/features/logout-page.png)         |
 
 #### Site Owner
 
-- As the site owner, I want only logged-in users to add, edit or delete recipes so that content is managed responsibly
-- As the site owner, I want users to only edit or delete their own content so that other users' recipes are protected
-- As the site owner, I want an admin panel so that I can manage categories, users and recipes if needed
-- As the site owner, I want the site to be fully responsive so that users on mobile devices have a good experience
+| #   | User Story                                                                                                | Proof                                                          |
+| --- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| 16  | **I want** only logged-in users to add, edit or delete recipes **So that** content is managed responsibly | ![](documentation/images/features/login-required-redirect.png) |
+| 17  | **I want** users to only edit or delete their own content **So that** other users' recipes are protected  | ![](documentation/images/features/edit-ownership-error.png)    |
+| 18  | **I want** an admin panel **So that** I can manage categories, users and recipes if needed                | ![](documentation/images/features/admin-panel.png)             |
+| 19  | **I want** the site to be fully responsive **So that** users on mobile devices have a good experience     | ![](documentation/images/amiresponsive.png)                    |
 
 ### Wireframes
 
