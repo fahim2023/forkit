@@ -94,49 +94,33 @@ The site owner benefits by building an engaged food community and growing a valu
 
 ### Wireframes
 
-<details>
-<summary>Homepage</summary>
+Wireframes were created in Figma before development began to plan the layout of each key page.
 
-![Wireframe of homepage](documentation/images/wireframes/wireframe-homepage.png)
+#### Home Page
 
-</details>
+| Desktop                                                           | Mobile                                                          |
+| ----------------------------------------------------------------- | --------------------------------------------------------------- |
+| ![Home Desktop](documentation/images/wireframes/Home-Desktop.png) | ![Home Mobile](documentation/images/wireframes/home-mobile.png) |
 
-<details>
-<summary>Recipe Detail Page</summary>
+#### Recipe Detail Page
 
-![Wireframe of recipe detail page](documentation/images/wireframes/wireframe-recipe-detail.png)
+| Desktop                                                                            | Mobile                                                                      |
+| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| ![Recipe Detail Desktop](documentation/images/wireframes/desktop-details_page.png) | ![Recipe Detail Mobile](documentation/images/wireframes/Mobile_-detail.png) |
 
-</details>
+#### Add / Edit Recipe Form
 
-<details>
-<summary>Add Recipe Form</summary>
+![Add Recipe Form](documentation/images/wireframes/form.png)
 
-![Wireframe of add recipe form](documentation/images/wireframes/wireframe-add-recipe.png)
+#### Login Page
 
-</details>
-
-<details>
-<summary>Profile Page</summary>
-
-![Wireframe of profile page](documentation/images/wireframes/wireframe-profile.png)
-
-</details>
-
-<details>
-<summary>Login / Register</summary>
-
-![Wireframe of login page](documentation/images/wireframes/wireframe-login.png)
-
-</details>
-
----
+![Login Page](documentation/images/wireframes/login.png)
 
 ## Database Design
 
 ### ERD
 
-_(Add ERD diagram image here)_
-
+![ERD](documentation/images/erd.png)
 The application is built around five main entities:
 
 - **User** — Django's built-in User model. A user can create many recipes, comments and ratings.
@@ -347,7 +331,6 @@ The Django admin panel allows the site owner to manage all recipes, categories, 
 - Git & GitHub (version control)
 - VS Code
 - Chrome DevTools
-- [Base44](https://app.base44.com/) (wireframe design)
 
 **Validation Tools:**
 
@@ -610,18 +593,40 @@ All Python files were validated using the [CI Python Linter](https://pep8ci.hero
 
 ### Responsiveness
 
-Tested on the following devices and browsers:
+Tested across Chrome, Firefox (Mozilla) and Safari on desktop, tablet and mobile using Chrome/Firefox/Safari DevTools and the live Heroku deployment.
 
-| Device  | Browser | Result |
-| ------- | ------- | ------ |
-| Desktop | Chrome  | Pass   |
-| Desktop | Firefox | Pass   |
-| Desktop | Safari  | Pass   |
-| Tablet  | Chrome  | Pass   |
-| Mobile  | Chrome  | Pass   |
-| Mobile  | Safari  | Pass   |
+<details>
+<summary>Chrome</summary>
 
----
+| Page          | Desktop                                                                    | Tablet                                                                   | Mobile                                                                   |
+| ------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| Home          | ![](documentation/images/responsiveness/chrome_home_desktop.png)           | ![](documentation/images/responsiveness/chrome_home_tablet.png)          | ![](documentation/images/responsiveness/chrome_home_mobile.png)          |
+| Recipe Detail | ![](documentation/images/responsiveness/chrome_recipe_details_desktop.png) | ![](documentation/images/responsiveness/chrome_recipe_detail_tablet.png) | ![](documentation/images/responsiveness/chrome_recipe_detail_mobile.png) |
+| Add Recipe    | ![](documentation/images/responsiveness/chrome_add_recipe_desktop.png)     | ![](documentation/images/responsiveness/chrome_add_recipe_tablet.png)    | ![](documentation/images/responsiveness/chrome_add_recipe_mobile.png)    |
+
+</details>
+
+<details>
+<summary>Safari</summary>
+
+| Page          | Desktop                                                                   | Tablet                                                                   | Mobile                                                                   |
+| ------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| Home          | ![](documentation/images/responsiveness/safari_home_desktop.png)          | ![](documentation/images/responsiveness/safari_home_tablet.png)          | ![](documentation/images/responsiveness/safari_home_mobile.png)          |
+| Recipe Detail | ![](documentation/images/responsiveness/safari_recipe_detail_desktop.png) | ![](documentation/images/responsiveness/safari_recipe_detail_tablet.png) | ![](documentation/images/responsiveness/safari_recipe_detail_mobile.png) |
+| Add Recipe    | ![](documentation/images/responsiveness/safari_add_recipe_desktop.png)    | ![](documentation/images/responsiveness/safari_add_recipe_tablet.png)    | ![](documentation/images/responsiveness/safari_add_recipe_mobile.png)    |
+
+</details>
+
+<details>
+<summary>Firefox (Mozilla)</summary>
+
+| Page          | Desktop                                                                    | Tablet                                                                    | Mobile                                                                    |
+| ------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Home          | ![](documentation/images/responsiveness/mozilla_home_desktop.png)          | ![](documentation/images/responsiveness/mozilla_home_tablet.png)          | ![](documentation/images/responsiveness/mozilla_home_mobile.png)          |
+| Recipe Detail | ![](documentation/images/responsiveness/mozilla_recipe_detail_desktop.png) | ![](documentation/images/responsiveness/mozilla_recipe_detail_tablet.png) | ![](documentation/images/responsiveness/mozilla_recipe_detail_mobile.png) |
+| Add Recipe    | ![](documentation/images/responsiveness/mozilla_add_recipe_desktop.png)    | ![](documentation/images/responsiveness/mozilla_add_recipe_tablet.png)    | ![](documentation/images/responsiveness/mozilla_add_recipe_mobile.png)    |
+
+</details>
 
 ## Bugs
 
