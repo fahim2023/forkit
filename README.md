@@ -94,7 +94,7 @@ The site owner benefits by building an engaged food community and growing a valu
 
 ### Wireframes
 
-Wireframes were created in Figma before development began to plan the layout of each key page.
+Wireframes were created using [Figma](https://www.figma.com) before development began to plan the layout of each key page.
 
 #### Home Page
 
@@ -104,9 +104,9 @@ Wireframes were created in Figma before development began to plan the layout of 
 
 #### Recipe Detail Page
 
-| Desktop                                                                            | Mobile                                                                      |
-| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| ![Recipe Detail Desktop](documentation/images/wireframes/desktop-details_page.png) | ![Recipe Detail Mobile](documentation/images/wireframes/Mobile_-detail.png) |
+| Desktop                                                                            | Mobile                                                                     |
+| ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| ![Recipe Detail Desktop](documentation/images/wireframes/desktop-details-page.png) | ![Recipe Detail Mobile](documentation/images/wireframes/Mobile-detail.png) |
 
 #### Add / Edit Recipe Form
 
@@ -120,8 +120,9 @@ Wireframes were created in Figma before development began to plan the layout of 
 
 ### ERD
 
-![ERD](documentation/images/erd.png)
-The application is built around five main entities:
+The Entity Relationship Diagram (ERD) was created using [Canva](https://www.canva.com) to illustrate the database structure and relationships between models.
+
+![ERD](documentation/images/erd.png)The application is built around five main entities:
 
 - **User** — Django's built-in User model. A user can create many recipes, comments and ratings.
 - **Category** — Groups recipes by cuisine or type (e.g. Italian, Vegan, Desserts).
